@@ -28,7 +28,7 @@ import {
   Award,
   Settings,
   Download,
-  Print,
+  Printer,
   Mail,
   MoreHorizontal,
 } from "lucide-react";
@@ -182,7 +182,7 @@ const ClinicOldLab: React.FC = () => {
                   إدارة المختبر
                 </h1>
                 <p className="text-gray-600">
-                  إدارة شاملة لطلبات المختبر والتركيبات
+                  إدارة شاملة لطلبات المختبر وا��تركيبات
                 </p>
               </div>
             </div>
@@ -217,7 +217,7 @@ const ClinicOldLab: React.FC = () => {
                 <p className="text-2xl font-bold text-gray-900">
                   {stats.total}
                 </p>
-                <p className="text-gray-600">إجمالي الطلبات</p>
+                <p className="text-gray-600">إجمالي ال��لبات</p>
               </div>
             </div>
           </div>
