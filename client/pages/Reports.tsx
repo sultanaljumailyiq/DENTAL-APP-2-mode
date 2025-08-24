@@ -53,7 +53,7 @@ import {
   Edit,
   Copy,
   Save,
-  Print,
+  Printer,
   ExternalLink,
   Percent,
   Calculator,
@@ -106,7 +106,7 @@ const reportCategories = [
     icon: Package,
     color: "orange",
     reports: [
-      { id: "stock_levels", name: "مستويات المخزون", description: "حالة المخزون الحالية" },
+      { id: "stock_levels", name: "م��تويات المخزون", description: "حالة المخزون الحالية" },
       { id: "purchase_analysis", name: "تحليل المشتريات", description: "تحليل عمليات الشراء" },
       { id: "supplier_performance", name: "أداء الموردين", description: "تقييم أداء الموردين" },
       { id: "inventory_turnover", name: "دوران المخزون", description: "معدل دوران المواد" }
@@ -130,7 +130,7 @@ const reportCategories = [
     icon: Activity,
     color: "teal",
     reports: [
-      { id: "clinic_efficiency", name: "كفاءة العيادة", description: "مؤشرات الكفاءة التشغيلية" },
+      { id: "clinic_efficiency", name: "كفاءة ا��عيادة", description: "مؤشرات الكفاءة التشغيلية" },
       { id: "equipment_utilization", name: "استخدام المعدات", description: "معدل استخدام المعدات" },
       { id: "quality_metrics", name: "مؤشرات الجودة", description: "مقاييس ج��دة الخدمة" },
       { id: "compliance", name: "الامتثال واللوائح", description: "تقارير الامتثال والمعايير" }
