@@ -70,11 +70,27 @@ const reportCategories = [
     icon: DollarSign,
     color: "green",
     reports: [
-      { id: "revenue", name: "الإيرادات الشهرية", description: "تقرير تفصيلي عن الإيرادات" },
-      { id: "expenses", name: "المصروفات والتكاليف", description: "تحليل المصروفات الشهرية" },
-      { id: "profit_loss", name: "الأرباح والخسائر", description: "بيان الأرباح والخسائر" },
-      { id: "cash_flow", name: "التدفق النقدي", description: "تحليل التدفق النقدي" }
-    ]
+      {
+        id: "revenue",
+        name: "الإيرادات الشهرية",
+        description: "تقرير تفصيلي عن الإيرادات",
+      },
+      {
+        id: "expenses",
+        name: "المصروفات والتكاليف",
+        description: "تحليل المصروفات الشهرية",
+      },
+      {
+        id: "profit_loss",
+        name: "الأرباح والخسائر",
+        description: "بيان الأرباح والخسائر",
+      },
+      {
+        id: "cash_flow",
+        name: "التدفق النقدي",
+        description: "تحليل التدفق النقدي",
+      },
+    ],
   },
   {
     id: "patients",
@@ -82,11 +98,27 @@ const reportCategories = [
     icon: Users,
     color: "blue",
     reports: [
-      { id: "patient_statistics", name: "إحصائيات المرضى", description: "إحصائيات شاملة عن المرضى" },
-      { id: "appointments", name: "تقرير المواعيد", description: "تحليل المواعيد والحجوزات" },
-      { id: "patient_satisfaction", name: "رضا المرضى", description: "تقييمات ورضا المرضى" },
-      { id: "patient_demographics", name: "تصنيف المرضى", description: "توزيع المرضى حسب العمر والجنس" }
-    ]
+      {
+        id: "patient_statistics",
+        name: "إحصائيات المرضى",
+        description: "إحصائيات شاملة عن المرضى",
+      },
+      {
+        id: "appointments",
+        name: "تقرير المواعيد",
+        description: "تحليل المواعيد والحجوزات",
+      },
+      {
+        id: "patient_satisfaction",
+        name: "رضا المرضى",
+        description: "تقييمات ورضا المرضى",
+      },
+      {
+        id: "patient_demographics",
+        name: "تصنيف المرضى",
+        description: "توزيع المرضى حسب العمر والجنس",
+      },
+    ],
   },
   {
     id: "treatments",
@@ -94,11 +126,27 @@ const reportCategories = [
     icon: Stethoscope,
     color: "purple",
     reports: [
-      { id: "treatment_analysis", name: "تحليل العلاجات", description: "إحصائيات العلاجات المقدمة" },
-      { id: "success_rates", name: "معدلات النجاح", description: "معدلات نجاح العلاجات" },
-      { id: "treatment_duration", name: "مدة العلاجات", description: "تحليل أوقات العلاجات" },
-      { id: "ai_performance", name: "أداء الذكاء الاصطناعي", description: "تقييم أداء نظام الذكاء الاصطناعي" }
-    ]
+      {
+        id: "treatment_analysis",
+        name: "تحليل العلاجات",
+        description: "إحصائيات العلاجات المقدمة",
+      },
+      {
+        id: "success_rates",
+        name: "معدلات النجاح",
+        description: "معدلات نجاح العلاجات",
+      },
+      {
+        id: "treatment_duration",
+        name: "مدة العلاجات",
+        description: "تحليل أوقات العلاجات",
+      },
+      {
+        id: "ai_performance",
+        name: "أداء الذكاء الاصطناعي",
+        description: "تقييم أداء نظام الذكاء الاصطناعي",
+      },
+    ],
   },
   {
     id: "inventory",
@@ -106,11 +154,27 @@ const reportCategories = [
     icon: Package,
     color: "orange",
     reports: [
-      { id: "stock_levels", name: "م��تويات المخزون", description: "حالة المخزون الحالية" },
-      { id: "purchase_analysis", name: "تحليل المشتريات", description: "تحليل عمليات الشراء" },
-      { id: "supplier_performance", name: "أداء الموردين", description: "تقييم أداء الموردين" },
-      { id: "inventory_turnover", name: "دوران المخزون", description: "معدل دوران المواد" }
-    ]
+      {
+        id: "stock_levels",
+        name: "م��تويات المخزون",
+        description: "حالة المخزون الحالية",
+      },
+      {
+        id: "purchase_analysis",
+        name: "تحليل المشتريات",
+        description: "تحليل عمليات الشراء",
+      },
+      {
+        id: "supplier_performance",
+        name: "أداء الموردين",
+        description: "تقييم أداء الموردين",
+      },
+      {
+        id: "inventory_turnover",
+        name: "دوران المخزون",
+        description: "معدل دوران المواد",
+      },
+    ],
   },
   {
     id: "staff",
@@ -118,11 +182,27 @@ const reportCategories = [
     icon: Briefcase,
     color: "indigo",
     reports: [
-      { id: "staff_performance", name: "أداء الموظفين", description: "تقييم أداء فريق العمل" },
-      { id: "attendance", name: "الحضور والغياب", description: "تقرير الحضور والغياب" },
-      { id: "productivity", name: "الإنتاجية", description: "مؤشرات الإنتاجية" },
-      { id: "training", name: "التدريب والتطوير", description: "برامج التدريب والتطوير" }
-    ]
+      {
+        id: "staff_performance",
+        name: "أداء الموظفين",
+        description: "تقييم أداء فريق العمل",
+      },
+      {
+        id: "attendance",
+        name: "الحضور والغياب",
+        description: "تقرير الحضور والغياب",
+      },
+      {
+        id: "productivity",
+        name: "الإنتاجية",
+        description: "مؤشرات الإنتاجية",
+      },
+      {
+        id: "training",
+        name: "التدريب والتطوير",
+        description: "برامج التدريب والتطوير",
+      },
+    ],
   },
   {
     id: "operational",
@@ -130,12 +210,28 @@ const reportCategories = [
     icon: Activity,
     color: "teal",
     reports: [
-      { id: "clinic_efficiency", name: "كفاءة ا��عيادة", description: "مؤشرات الكفاءة التشغيلية" },
-      { id: "equipment_utilization", name: "استخدام المعدات", description: "معدل استخدام المعدات" },
-      { id: "quality_metrics", name: "مؤشرات الجودة", description: "مقاييس ج��دة الخدمة" },
-      { id: "compliance", name: "الامتثال واللوائح", description: "تقارير الامتثال والمعايير" }
-    ]
-  }
+      {
+        id: "clinic_efficiency",
+        name: "كفاءة ا��عيادة",
+        description: "مؤشرات الكفاءة التشغيلية",
+      },
+      {
+        id: "equipment_utilization",
+        name: "استخدام المعدات",
+        description: "معدل استخدام المعدات",
+      },
+      {
+        id: "quality_metrics",
+        name: "مؤشرات الجودة",
+        description: "مقاييس ج��دة الخدمة",
+      },
+      {
+        id: "compliance",
+        name: "الامتثال واللوائح",
+        description: "تقارير الامتثال والمعايير",
+      },
+    ],
+  },
 ];
 
 const sampleData = {
@@ -148,8 +244,8 @@ const sampleData = {
       { month: "يناير", value: 98000 },
       { month: "فبراير", value: 105000 },
       { month: "مارس", value: 118000 },
-      { month: "أبريل", value: 125000 }
-    ]
+      { month: "أبريل", value: 125000 },
+    ],
   },
   patients: {
     total: 1250,
@@ -158,8 +254,8 @@ const sampleData = {
     satisfaction: 4.8,
     data: [
       { category: "جدد", value: 85, percentage: 6.8 },
-      { category: "عائدون", value: 1165, percentage: 93.2 }
-    ]
+      { category: "عائدون", value: 1165, percentage: 93.2 },
+    ],
   },
   treatments: {
     total: 890,
@@ -171,8 +267,8 @@ const sampleData = {
       { type: "حشوات", count: 230, success: 98 },
       { type: "تنظيف", count: 315, success: 99 },
       { type: "تقويم", count: 85, success: 89 },
-      { type: "زراعة", count: 115, success: 87 }
-    ]
+      { type: "زراعة", count: 115, success: 87 },
+    ],
   },
   inventory: {
     total_items: 450,
@@ -182,9 +278,9 @@ const sampleData = {
     data: [
       { category: "مواد طبية", value: 45000, percentage: 50.3 },
       { category: "معدات", value: 30000, percentage: 33.5 },
-      { category: "أدوات", value: 14500, percentage: 16.2 }
-    ]
-  }
+      { category: "أدوات", value: 14500, percentage: 16.2 },
+    ],
+  },
 };
 
 const Reports = () => {
@@ -195,7 +291,9 @@ const Reports = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [isGenerating, setIsGenerating] = useState(false);
 
-  const currentCategory = reportCategories.find(cat => cat.id === selectedCategory);
+  const currentCategory = reportCategories.find(
+    (cat) => cat.id === selectedCategory,
+  );
 
   const generateReport = async (reportId: string) => {
     setIsGenerating(true);
@@ -206,30 +304,40 @@ const Reports = () => {
     }, 2000);
   };
 
-  const ReportCard = ({ report, category }: { report: any, category: any }) => (
+  const ReportCard = ({ report, category }: { report: any; category: any }) => (
     <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 group">
-      <div className={cn(
-        "p-6 bg-gradient-to-r relative overflow-hidden",
-        category.color === "green" && "from-green-50 to-emerald-50 border-b border-green-100",
-        category.color === "blue" && "from-blue-50 to-indigo-50 border-b border-blue-100",
-        category.color === "purple" && "from-purple-50 to-pink-50 border-b border-purple-100",
-        category.color === "orange" && "from-orange-50 to-red-50 border-b border-orange-100",
-        category.color === "indigo" && "from-indigo-50 to-purple-50 border-b border-indigo-100",
-        category.color === "teal" && "from-teal-50 to-cyan-50 border-b border-teal-100"
-      )}>
+      <div
+        className={cn(
+          "p-6 bg-gradient-to-r relative overflow-hidden",
+          category.color === "green" &&
+            "from-green-50 to-emerald-50 border-b border-green-100",
+          category.color === "blue" &&
+            "from-blue-50 to-indigo-50 border-b border-blue-100",
+          category.color === "purple" &&
+            "from-purple-50 to-pink-50 border-b border-purple-100",
+          category.color === "orange" &&
+            "from-orange-50 to-red-50 border-b border-orange-100",
+          category.color === "indigo" &&
+            "from-indigo-50 to-purple-50 border-b border-indigo-100",
+          category.color === "teal" &&
+            "from-teal-50 to-cyan-50 border-b border-teal-100",
+        )}
+      >
         <div className="absolute top-0 right-0 w-16 h-16 bg-white/20 rounded-full -translate-y-8 translate-x-8"></div>
-        
+
         <div className="relative z-10">
           <div className="flex items-start justify-between mb-4">
-            <div className={cn(
-              "w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform",
-              category.color === "green" && "bg-green-500",
-              category.color === "blue" && "bg-blue-500",
-              category.color === "purple" && "bg-purple-500",
-              category.color === "orange" && "bg-orange-500",
-              category.color === "indigo" && "bg-indigo-500",
-              category.color === "teal" && "bg-teal-500"
-            )}>
+            <div
+              className={cn(
+                "w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform",
+                category.color === "green" && "bg-green-500",
+                category.color === "blue" && "bg-blue-500",
+                category.color === "purple" && "bg-purple-500",
+                category.color === "orange" && "bg-orange-500",
+                category.color === "indigo" && "bg-indigo-500",
+                category.color === "teal" && "bg-teal-500",
+              )}
+            >
               <category.icon className="w-6 h-6 text-white" />
             </div>
             <div className="flex gap-2">
@@ -241,12 +349,12 @@ const Reports = () => {
               </button>
             </div>
           </div>
-          
+
           <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
             {report.name}
           </h3>
           <p className="text-sm text-gray-600 mb-4">{report.description}</p>
-          
+
           <div className="flex items-center justify-between text-sm text-gray-500">
             <span className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
@@ -262,18 +370,24 @@ const Reports = () => {
 
       <div className="p-6">
         <div className="flex gap-2">
-          <button 
+          <button
             onClick={() => generateReport(report.id)}
             disabled={isGenerating}
             className={cn(
               "flex-1 py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all",
-              category.color === "green" && "bg-green-600 hover:bg-green-700 text-white",
-              category.color === "blue" && "bg-blue-600 hover:bg-blue-700 text-white",
-              category.color === "purple" && "bg-purple-600 hover:bg-purple-700 text-white",
-              category.color === "orange" && "bg-orange-600 hover:bg-orange-700 text-white",
-              category.color === "indigo" && "bg-indigo-600 hover:bg-indigo-700 text-white",
-              category.color === "teal" && "bg-teal-600 hover:bg-teal-700 text-white",
-              isGenerating && "opacity-50 cursor-not-allowed"
+              category.color === "green" &&
+                "bg-green-600 hover:bg-green-700 text-white",
+              category.color === "blue" &&
+                "bg-blue-600 hover:bg-blue-700 text-white",
+              category.color === "purple" &&
+                "bg-purple-600 hover:bg-purple-700 text-white",
+              category.color === "orange" &&
+                "bg-orange-600 hover:bg-orange-700 text-white",
+              category.color === "indigo" &&
+                "bg-indigo-600 hover:bg-indigo-700 text-white",
+              category.color === "teal" &&
+                "bg-teal-600 hover:bg-teal-700 text-white",
+              isGenerating && "opacity-50 cursor-not-allowed",
             )}
           >
             {isGenerating ? (
@@ -306,12 +420,16 @@ const Reports = () => {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-        
+
         <div className="relative z-10">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold mb-2">مركز التقارير والتحليلات</h1>
-              <p className="text-indigo-100 text-lg mb-4">تقارير شاملة وتحليلات ذكية لإدارة العيادة</p>
+              <h1 className="text-3xl font-bold mb-2">
+                مركز التقارير والتحليلات
+              </h1>
+              <p className="text-indigo-100 text-lg mb-4">
+                تقارير شاملة وتحليلات ذكية لإدارة العيادة
+              </p>
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
                   <BarChart3 className="w-5 h-5" />
@@ -344,55 +462,62 @@ const Reports = () => {
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
-          { 
-            title: "الإيرادات الشهرية", 
-            value: `$${sampleData.revenue.current.toLocaleString()}`, 
-            change: `+${sampleData.revenue.change}%`, 
-            icon: DollarSign, 
+          {
+            title: "الإيرادات الشهرية",
+            value: `$${sampleData.revenue.current.toLocaleString()}`,
+            change: `+${sampleData.revenue.change}%`,
+            icon: DollarSign,
             color: "green",
-            trend: "up"
+            trend: "up",
           },
-          { 
-            title: "إجمالي المرضى", 
-            value: sampleData.patients.total.toLocaleString(), 
-            change: `+${sampleData.patients.new}`, 
-            icon: Users, 
+          {
+            title: "إجمالي المرضى",
+            value: sampleData.patients.total.toLocaleString(),
+            change: `+${sampleData.patients.new}`,
+            icon: Users,
             color: "blue",
-            trend: "up"
+            trend: "up",
           },
-          { 
-            title: "العلاجات المكتملة", 
-            value: sampleData.treatments.completed, 
-            change: `${sampleData.treatments.success_rate}%`, 
-            icon: Stethoscope, 
+          {
+            title: "العلاجات المكتملة",
+            value: sampleData.treatments.completed,
+            change: `${sampleData.treatments.success_rate}%`,
+            icon: Stethoscope,
             color: "purple",
-            trend: "up"
+            trend: "up",
           },
-          { 
-            title: "قيمة المخزون", 
-            value: `$${sampleData.inventory.value.toLocaleString()}`, 
-            change: `${sampleData.inventory.low_stock} ناقص`, 
-            icon: Package, 
+          {
+            title: "قيمة المخزون",
+            value: `$${sampleData.inventory.value.toLocaleString()}`,
+            change: `${sampleData.inventory.low_stock} ناقص`,
+            icon: Package,
             color: "orange",
-            trend: "down"
+            trend: "down",
           },
         ].map((stat, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-all group">
+          <div
+            key={index}
+            className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-all group"
+          >
             <div className="flex items-center justify-between mb-4">
-              <div className={cn(
-                "w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform",
-                stat.color === "green" && "bg-green-100",
-                stat.color === "blue" && "bg-blue-100",
-                stat.color === "purple" && "bg-purple-100",
-                stat.color === "orange" && "bg-orange-100"
-              )}>
-                <stat.icon className={cn(
-                  "w-6 h-6",
-                  stat.color === "green" && "text-green-600",
-                  stat.color === "blue" && "text-blue-600",
-                  stat.color === "purple" && "text-purple-600",
-                  stat.color === "orange" && "text-orange-600"
-                )} />
+              <div
+                className={cn(
+                  "w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform",
+                  stat.color === "green" && "bg-green-100",
+                  stat.color === "blue" && "bg-blue-100",
+                  stat.color === "purple" && "bg-purple-100",
+                  stat.color === "orange" && "bg-orange-100",
+                )}
+              >
+                <stat.icon
+                  className={cn(
+                    "w-6 h-6",
+                    stat.color === "green" && "text-green-600",
+                    stat.color === "blue" && "text-blue-600",
+                    stat.color === "purple" && "text-purple-600",
+                    stat.color === "orange" && "text-orange-600",
+                  )}
+                />
               </div>
               <div className="flex items-center gap-1">
                 {stat.trend === "up" ? (
@@ -400,15 +525,19 @@ const Reports = () => {
                 ) : (
                   <TrendingDown className="w-4 h-4 text-red-600" />
                 )}
-                <span className={cn(
-                  "text-xs font-medium",
-                  stat.trend === "up" ? "text-green-600" : "text-red-600"
-                )}>
+                <span
+                  className={cn(
+                    "text-xs font-medium",
+                    stat.trend === "up" ? "text-green-600" : "text-red-600",
+                  )}
+                >
                   {stat.change}
                 </span>
               </div>
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+            <div className="text-2xl font-bold text-gray-900 mb-1">
+              {stat.value}
+            </div>
             <p className="text-sm text-gray-600">{stat.title}</p>
           </div>
         ))}
@@ -450,7 +579,9 @@ const Reports = () => {
                 onClick={() => setViewMode("grid")}
                 className={cn(
                   "p-2 rounded-xl transition-all",
-                  viewMode === "grid" ? "bg-white shadow-sm" : "hover:bg-gray-200"
+                  viewMode === "grid"
+                    ? "bg-white shadow-sm"
+                    : "hover:bg-gray-200",
                 )}
               >
                 <Grid3X3 className="w-5 h-5" />
@@ -459,7 +590,9 @@ const Reports = () => {
                 onClick={() => setViewMode("list")}
                 className={cn(
                   "p-2 rounded-xl transition-all",
-                  viewMode === "list" ? "bg-white shadow-sm" : "hover:bg-gray-200"
+                  viewMode === "list"
+                    ? "bg-white shadow-sm"
+                    : "hover:bg-gray-200",
                 )}
               >
                 <List className="w-5 h-5" />
@@ -471,7 +604,7 @@ const Reports = () => {
               <RefreshCw className="w-4 h-4" />
               تحديث البيانات
             </button>
-            
+
             <button className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-xl hover:bg-green-200 transition-all">
               <Settings className="w-4 h-4" />
               إعدادات التقارير
@@ -490,39 +623,49 @@ const Reports = () => {
               "p-4 rounded-2xl border-2 transition-all text-center group hover:scale-105",
               selectedCategory === category.id
                 ? "border-indigo-500 bg-indigo-50"
-                : "border-gray-200 hover:border-gray-300 bg-white"
+                : "border-gray-200 hover:border-gray-300 bg-white",
             )}
           >
-            <div className={cn(
-              "w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform",
-              selectedCategory === category.id
-                ? "bg-indigo-600"
-                : category.color === "green" && "bg-green-100",
+            <div
+              className={cn(
+                "w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform",
+                selectedCategory === category.id
+                  ? "bg-indigo-600"
+                  : category.color === "green" && "bg-green-100",
                 category.color === "blue" && "bg-blue-100",
                 category.color === "purple" && "bg-purple-100",
                 category.color === "orange" && "bg-orange-100",
                 category.color === "indigo" && "bg-indigo-100",
-                category.color === "teal" && "bg-teal-100"
-            )}>
-              <category.icon className={cn(
-                "w-6 h-6",
-                selectedCategory === category.id
-                  ? "text-white"
-                  : category.color === "green" && "text-green-600",
+                category.color === "teal" && "bg-teal-100",
+              )}
+            >
+              <category.icon
+                className={cn(
+                  "w-6 h-6",
+                  selectedCategory === category.id
+                    ? "text-white"
+                    : category.color === "green" && "text-green-600",
                   category.color === "blue" && "text-blue-600",
                   category.color === "purple" && "text-purple-600",
                   category.color === "orange" && "text-orange-600",
                   category.color === "indigo" && "text-indigo-600",
-                  category.color === "teal" && "text-teal-600"
-              )} />
+                  category.color === "teal" && "text-teal-600",
+                )}
+              />
             </div>
-            <h3 className={cn(
-              "font-semibold text-sm",
-              selectedCategory === category.id ? "text-indigo-700" : "text-gray-900"
-            )}>
+            <h3
+              className={cn(
+                "font-semibold text-sm",
+                selectedCategory === category.id
+                  ? "text-indigo-700"
+                  : "text-gray-900",
+              )}
+            >
               {category.name}
             </h3>
-            <p className="text-xs text-gray-600 mt-1">{category.reports.length} تقرير</p>
+            <p className="text-xs text-gray-600 mt-1">
+              {category.reports.length} تقرير
+            </p>
           </button>
         ))}
       </div>
@@ -531,7 +674,9 @@ const Reports = () => {
       {currentCategory && (
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">{currentCategory.name}</h2>
+            <h2 className="text-2xl font-bold text-gray-900">
+              {currentCategory.name}
+            </h2>
             <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
               {currentCategory.reports.length} تقرير متاح
             </span>
@@ -540,37 +685,56 @@ const Reports = () => {
           {viewMode === "grid" ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {currentCategory.reports.map((report) => (
-                <ReportCard key={report.id} report={report} category={currentCategory} />
+                <ReportCard
+                  key={report.id}
+                  report={report}
+                  category={currentCategory}
+                />
               ))}
             </div>
           ) : (
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
               <div className="divide-y divide-gray-100">
                 {currentCategory.reports.map((report, index) => (
-                  <div key={report.id} className="p-6 hover:bg-gray-50 transition-all">
+                  <div
+                    key={report.id}
+                    className="p-6 hover:bg-gray-50 transition-all"
+                  >
                     <div className="flex items-center gap-6">
-                      <div className={cn(
-                        "w-12 h-12 rounded-xl flex items-center justify-center",
-                        currentCategory.color === "green" && "bg-green-100",
-                        currentCategory.color === "blue" && "bg-blue-100",
-                        currentCategory.color === "purple" && "bg-purple-100",
-                        currentCategory.color === "orange" && "bg-orange-100",
-                        currentCategory.color === "indigo" && "bg-indigo-100",
-                        currentCategory.color === "teal" && "bg-teal-100"
-                      )}>
-                        <currentCategory.icon className={cn(
-                          "w-6 h-6",
-                          currentCategory.color === "green" && "text-green-600",
-                          currentCategory.color === "blue" && "text-blue-600",
-                          currentCategory.color === "purple" && "text-purple-600",
-                          currentCategory.color === "orange" && "text-orange-600",
-                          currentCategory.color === "indigo" && "text-indigo-600",
-                          currentCategory.color === "teal" && "text-teal-600"
-                        )} />
+                      <div
+                        className={cn(
+                          "w-12 h-12 rounded-xl flex items-center justify-center",
+                          currentCategory.color === "green" && "bg-green-100",
+                          currentCategory.color === "blue" && "bg-blue-100",
+                          currentCategory.color === "purple" && "bg-purple-100",
+                          currentCategory.color === "orange" && "bg-orange-100",
+                          currentCategory.color === "indigo" && "bg-indigo-100",
+                          currentCategory.color === "teal" && "bg-teal-100",
+                        )}
+                      >
+                        <currentCategory.icon
+                          className={cn(
+                            "w-6 h-6",
+                            currentCategory.color === "green" &&
+                              "text-green-600",
+                            currentCategory.color === "blue" && "text-blue-600",
+                            currentCategory.color === "purple" &&
+                              "text-purple-600",
+                            currentCategory.color === "orange" &&
+                              "text-orange-600",
+                            currentCategory.color === "indigo" &&
+                              "text-indigo-600",
+                            currentCategory.color === "teal" && "text-teal-600",
+                          )}
+                        />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{report.name}</h3>
-                        <p className="text-gray-600 text-sm">{report.description}</p>
+                        <h3 className="text-lg font-bold text-gray-900 mb-1">
+                          {report.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm">
+                          {report.description}
+                        </p>
                         <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
                           <span className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
@@ -583,16 +747,22 @@ const Reports = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <button 
+                        <button
                           onClick={() => generateReport(report.id)}
                           className={cn(
                             "px-4 py-2 rounded-xl font-medium transition-all",
-                            currentCategory.color === "green" && "bg-green-600 hover:bg-green-700 text-white",
-                            currentCategory.color === "blue" && "bg-blue-600 hover:bg-blue-700 text-white",
-                            currentCategory.color === "purple" && "bg-purple-600 hover:bg-purple-700 text-white",
-                            currentCategory.color === "orange" && "bg-orange-600 hover:bg-orange-700 text-white",
-                            currentCategory.color === "indigo" && "bg-indigo-600 hover:bg-indigo-700 text-white",
-                            currentCategory.color === "teal" && "bg-teal-600 hover:bg-teal-700 text-white"
+                            currentCategory.color === "green" &&
+                              "bg-green-600 hover:bg-green-700 text-white",
+                            currentCategory.color === "blue" &&
+                              "bg-blue-600 hover:bg-blue-700 text-white",
+                            currentCategory.color === "purple" &&
+                              "bg-purple-600 hover:bg-purple-700 text-white",
+                            currentCategory.color === "orange" &&
+                              "bg-orange-600 hover:bg-orange-700 text-white",
+                            currentCategory.color === "indigo" &&
+                              "bg-indigo-600 hover:bg-indigo-700 text-white",
+                            currentCategory.color === "teal" &&
+                              "bg-teal-600 hover:bg-teal-700 text-white",
                           )}
                         >
                           عرض التقرير
@@ -620,7 +790,7 @@ const Reports = () => {
       <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-        
+
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
@@ -628,10 +798,12 @@ const Reports = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">رؤى الذكاء الاصطناعي</h3>
-              <p className="text-white/90">تحليلات ذكية ونصائح مخصصة لتحسين الأداء</p>
+              <p className="text-white/90">
+                تحليلات ذكية ونصائح مخصصة لتحسين الأداء
+              </p>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -639,24 +811,27 @@ const Reports = () => {
                 value: "نمو 15%",
                 description: "متوقع نمو الإيرادات بنسبة 15% الشهر القادم",
                 icon: TrendingUp,
-                color: "green"
+                color: "green",
               },
               {
                 title: "رضا المرضى",
                 value: "95% إيجابي",
                 description: "تحسن ملحوظ في تقييمات المرضى",
                 icon: Heart,
-                color: "pink"
+                color: "pink",
               },
               {
                 title: "كفاءة العمليات",
                 value: "مُحسنة",
                 description: "تحسن في أوقات الانتظار وجودة الخدمة",
                 icon: Zap,
-                color: "yellow"
-              }
+                color: "yellow",
+              },
             ].map((insight, index) => (
-              <div key={index} className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+              <div
+                key={index}
+                className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
+              >
                 <div className="flex items-center justify-between mb-4">
                   <insight.icon className="w-8 h-8 text-white" />
                   <span className="text-lg font-bold">{insight.value}</span>
