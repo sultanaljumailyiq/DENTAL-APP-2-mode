@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
-import SimpleInteractiveMap from "@/components/SimpleInteractiveMap";
+import CompactInteractiveMap from "@/components/CompactInteractiveMap";
 
 // Mock data for clinics in Iraq
 const nearbyClinicas = [
@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذا التشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذا ا��تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��شارة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -332,7 +332,7 @@ export default function LandingPage() {
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 أفضل صدي��� لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية ال��دعومة بالذكاء الاصطناعي
+                  الرعاية ال����دعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
@@ -461,13 +461,13 @@ export default function LandingPage() {
               اعثر على عيادة الأسنان المثالية بالقرب منك
             </h2>
             <p className="text-xl text-gray-600">
-              ابحث من خلال آلاف ��يادات الأسنان المعتمدة مع تقييمات وتقيمات
+              اب��ث من خلال آلاف ��يادات الأسنان المعتمدة مع تقييمات وتقيمات
               حقيقية.
             </p>
           </div>
 
           {/* الخريطة التفاعلية للعيادات القريبة */}
-          <SimpleInteractiveMap
+          <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
             title="اعثر على عيادات الأسنان القريبة منك"
