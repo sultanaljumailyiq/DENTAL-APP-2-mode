@@ -320,7 +320,7 @@ export default function Emergency() {
               <Hospital className="w-6 h-6 text-blue-600" />
               المستشفيات ا��قريبة
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6">
               {nearbyHospitals.map((hospital, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-lg p-6">
                   <div className="flex items-start justify-between mb-4">
