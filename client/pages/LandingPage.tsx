@@ -90,7 +90,7 @@ const articles = [
       "Everything about dental implants, from procedure to recovery and long-term care.",
     author: "د. سارة أحمد",
     authorEn: "Dr. Sarah Ahmed",
-    date: "15 ديسمبر 2024",
+    date: "15 د��سمبر 2024",
     dateEn: "Dec 15, 2024",
     readTime: "8 دقائق قراءة",
     readTimeEn: "8 min read",
@@ -253,7 +253,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div>
                 <h4 className="font-semibold text-gray-900 mb-3">
-                  الإجراءات الموصى بها:
+                  الإجر��ءات الموصى بها:
                 </h4>
                 <ul className="space-y-2">
                   {diagnosis.recommendations.map(
@@ -330,13 +330,13 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل صدي��� لابتسامتك مع{" "}
+                أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية ال����دعومة بالذكاء الاصطناعي
+                  الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                احصل على تشخيص أسنان فور�� بالذكاء الاصطناعي، ابحث عن أفضل
+                احصل على تشخيص أسنان فوري بالذكاء الاصطناعي، ابحث عن أفضل
                 العيادات بالقرب منك، واحجز المواعيد أونلاين. انضم للآلاف الذين
                 يثقون بزيندنتا لصحة أفواههم.
               </p>
@@ -353,7 +353,7 @@ export default function LandingPage() {
                   className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all flex items-center gap-2"
                 >
                   <MapPin className="w-5 h-5" />
-                  البحث ع�� ��يادات
+                  البحث عن عيادات
                 </Link>
               </div>
             </div>
@@ -384,15 +384,14 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              رعاية ا��أسنان المدعومة بالذكاء الاصطناعي
+              رعاية الأسنان المدعومة بالذكاء الاصطناعي
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              اختبر مستقبل طب الأسنان مع أدوات ��لتشخيص المتقدمة بالذكاء
-              الاصطناعي وتوصيات العلاج ال��خصصة.
+              اختبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex flex-row gap-6 overflow-x-auto md:flex-wrap">
             <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl">
               <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-6 h-6 text-white" />
@@ -420,14 +419,14 @@ export default function LandingPage() {
                 البحث عن العيادات
               </h3>
               <p className="text-gray-600 mb-6">
-                اكتشف العياد��ت والمختبرات القريبة منك مع الخريطة التفاعلية
+                اكتشف العيادات القريبة منك مع الخريطة التفاعلية
                 والتقييمات الحقيقية للمرضى.
               </p>
               <a
                 href="#clinics"
                 className="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
               >
-                ��ستكشف <ArrowRight className="w-4 h-4" />
+                استكشف <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 
@@ -458,11 +457,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              اعثر على عيادة الأسنان المثالية بالقرب منك
+              اعثر على عيادة الأسنان المثالية القريبة منك
             </h2>
             <p className="text-xl text-gray-600">
-              اب��ث من خلال آلاف ��يادات الأسنان المعتمدة مع تقييمات وتقيمات
-              حقيقية.
+              ابحث من خلال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
             </p>
           </div>
 
@@ -488,11 +486,11 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-row gap-8 overflow-x-auto">
             {articles.map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[360px] md:min-w-[400px]"
               >
                 <img
                   src={article.image}
@@ -557,11 +555,11 @@ export default function LandingPage() {
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">2,500+</div>
-              <div className="text-blue-100">عي��دة شريكة</div>
+              <div className="text-blue-100">عيادة شريكة</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">98%</div>
-              <div className="text-blue-100">دقة ��لذكاء الاصطناعي</div>
+              <div className="text-blue-100">دقة الذكاء الاصطناعي</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">24/7</div>
@@ -583,7 +581,7 @@ export default function LandingPage() {
                 <span className="text-xl font-bold">زيندنتا</span>
               </div>
               <p className="text-gray-400 mb-4">
-                مستقبل رعاية الأسنان، مدعوم بالذكاء الاصطناع�� ومدفوع بالرحمة.
+                مستقبل رعاية الأسنان، مدعوم بالذكاء الاصطناعي ومدفوع بالرحمة.
               </p>
               <div className="flex gap-4">
                 <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700">
@@ -615,7 +613,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    مقالات ا��أسنان
+                    مقالات الأسنان
                   </a>
                 </li>
               </ul>
@@ -652,12 +650,12 @@ export default function LandingPage() {
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a href="#" className="hover:text-white">
-                    مركز المساع��ة
+                    مركز المساعدة
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    اتصل بنا
+                    ات��ل بنا
                   </a>
                 </li>
                 <li>
