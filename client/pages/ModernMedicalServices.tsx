@@ -296,7 +296,7 @@ const mainFeatures = [
   },
   {
     title: "تشخيص بالذكاء الاصطناعي",
-    description: "احصل على تشخيص أولي دقيق في دقائق",
+    description: "احصل على تشخي�� أولي دقيق في دقائق",
     icon: Brain,
     color: "purple",
   },
@@ -739,9 +739,9 @@ export default function ModernMedicalServices() {
                       الخريطة التفاعلية للعيادات القريبة
                     </h3>
                   </div>
-                  <SimpleInteractiveMap
+                  <CompactInteractiveMap
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
-                    description="اعثر ��لى أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
                   />
                 </div>
               </div>
@@ -749,7 +749,7 @@ export default function ModernMedicalServices() {
 
             {/* Service Cards Section - Only show for non-emergency categories */}
             {activeCategory !== "emergency" && (
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap justify-center mb-8">
                 {currentCategory.cards.map((card) => (
                   <div
                     key={card.id}
