@@ -118,7 +118,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "/articles/#first-aid",
         color: "orange",
         gradient: "from-orange-500 to-red-500",
-        features: ["خطوات واضحة", "صور توضيحية", "سهل التطبيق"],
+        features: ["خطوات واضحة", "صور توضيحي��", "سهل التطبيق"],
       },
       {
         id: "emergency-locations",
@@ -154,7 +154,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "#clinic-map",
         color: "teal",
         gradient: "from-teal-500 to-green-500",
-        features: ["خريطة تفاعلية", "بحث بالمو��ع", "تفاصيل شاملة"],
+        features: ["خري��ة تفاعلية", "بحث بالمو��ع", "تفاصيل شاملة"],
       },
       {
         id: "clinic-reviews",
@@ -184,7 +184,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "/clinic-facilities",
         color: "purple",
         gradient: "from-purple-500 to-blue-500",
-        features: ["أجهزة حديثة", "خدمات متنوعة", "معايير الجو��ة"],
+        features: ["أجهزة حديثة", "خد��ات متنوعة", "معايير الجو��ة"],
       },
     ],
   },
@@ -437,7 +437,7 @@ export default function ModernMedicalServices() {
               </p>
 
               {/* Quick Access Buttons */}
-              <div className="flex flex-wrap justify-center gap-4 mb-5">
+              <div className="flex flex-wrap justify-center md:gap-4 gap-0.5 mb-5">
                 <Link
                   to="/ai-diagnosis"
                   className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2"
@@ -555,7 +555,7 @@ export default function ModernMedicalServices() {
             {activeCategory === "emergency" && (
               <div id="emergency-map" className="mb-8">
                 {/* Enhanced Promotional Cards Above Map */}
-                <div className="flex flex-wrap justify-center gap-4 mb-5">
+                <div className="flex flex-wrap justify-center md:gap-4 gap-0.5 mb-5">
                   {/* Interactive Map Card */}
                   <div
                     onClick={() => handleCardClick("#emergency-map")}
@@ -749,7 +749,7 @@ export default function ModernMedicalServices() {
 
             {/* Service Cards Section - Only show for non-emergency categories */}
             {activeCategory !== "emergency" && (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
                 {currentCategory.cards.map((card) => (
                   <div
                     key={card.id}
@@ -836,7 +836,7 @@ export default function ModernMedicalServices() {
             )}
 
             {activeCategory === "education" && (
-              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-6 text-white text-center mb-8">
+              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl md:p-6 p-2 text-white text-center md:mb-8 mb-1">
                 <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-90" />
                 <h3 className="text-xl font-bold mb-3">مكتبة طبية ��املة</h3>
                 <p className="mb-4 text-emerald-100 max-w-2xl mx-auto text-sm">
@@ -874,7 +874,7 @@ export default function ModernMedicalServices() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap justify-center md:gap-4 gap-1">
               {mainFeatures.map((feature, index) => (
                 <div
                   key={index}
