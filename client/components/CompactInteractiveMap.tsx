@@ -128,7 +128,7 @@ const mockClinics: Clinic[] = [
   {
     id: "3",
     clinicId: "CL-BAGHDAD-003",
-    name: "عيادة الدكتور محمد المتخصصة",
+    name: "عيا��ة الدكتور محمد المتخصصة",
     type: "عيادة أسنان",
     address: "شارع الجادرية، بغداد",
     rating: 4.7,
@@ -194,7 +194,7 @@ const mockClinics: Clinic[] = [
       "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop",
     phone: "+964 790 555 1234",
     status: "available",
-    services: ["طوارئ", "إسعافات أولية", "فحوصات سريعة"],
+    services: ["طوارئ", "إسع��فات أولية", "فحوصات سريعة"],
     openHours: "24 ساعة",
     certification: true,
     doctors: [
@@ -278,7 +278,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
               <MapPin className="w-5 h-5 md:w-7 md:h-7 text-blue-600" />
               {title}
             </h3>
-            <p className="text-gray-600 mt-1 text-sm md:text-base">
+            <p className="text-gray-600 mt-1 mb-3.5 text-sm md:text-base">
               {description}
             </p>
           </div>
@@ -294,7 +294,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
-            placeholder="ابحث عن عيادة أو طبيب..."
+            placeholder="��بحث عن عيادة أو طبيب..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pr-10 pl-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -303,7 +303,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
       </div>
 
       {/* Compact Clinics Grid */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+      <div className="flex flex-row gap-3 md:gap-4 overflow-x-auto md:flex-wrap">
         {filteredClinics.map((clinic) => (
           <div
             key={clinic.id}
