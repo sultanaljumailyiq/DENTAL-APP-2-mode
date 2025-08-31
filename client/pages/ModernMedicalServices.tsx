@@ -41,7 +41,6 @@ import {
 } from "@/components/MobileOptimizedHeader";
 import MobileDentalWidgets from "@/components/MobileDentalWidgets";
 import ComprehensiveNotificationCenter from "@/components/ComprehensiveNotificationCenter";
-import SimplifiedBottomNav from "@/components/SimplifiedBottomNav";
 import CompactAIAssistant, {
   FloatingAIButton,
   useAIAssistant,
@@ -269,7 +268,7 @@ const medicalCategories: MedicalCategory[] = [
       },
       {
         id: "disease-info",
-        title: "معلومات الأمراض",
+        title: "معلومات الأم��اض",
         description: "دليل شامل عن الأمراض وطرق الوقاية",
         icon: Info,
         path: "/articles/",
@@ -426,19 +425,19 @@ export default function ModernMedicalServices() {
     <div className="min-h-screen bg-gray-50">
       <div className="pb-20">
         {/* Enhanced Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-12">
+        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white pt-3.5 pb-1">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8">
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
                 منصتك الطبية الشاملة
               </h1>
-              <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-6">
+              <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
                 احصل على أفضل الخدمات الطبية من التشخيص الذكي ��لى البحث عن
                 العيادات القريبة
               </p>
 
               {/* Quick Access Buttons */}
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="flex flex-wrap justify-center gap-4 mb-5">
                 <Link
                   to="/ai-diagnosis"
                   className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2"
@@ -492,7 +491,7 @@ export default function ModernMedicalServices() {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Horizontal Category Navigation */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8 overflow-hidden">
-            <div className="grid grid-cols-3 gap-0">
+            <div className="flex flex-wrap justify-center gap-0">
               {medicalCategories
                 .filter((cat) => cat.id !== "removed-section")
                 .map((category) => {
@@ -556,7 +555,7 @@ export default function ModernMedicalServices() {
             {activeCategory === "emergency" && (
               <div id="emergency-map" className="mb-8">
                 {/* Enhanced Promotional Cards Above Map */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="flex flex-wrap justify-center gap-4 mb-5">
                   {/* Interactive Map Card */}
                   <div
                     onClick={() => handleCardClick("#emergency-map")}
@@ -875,7 +874,7 @@ export default function ModernMedicalServices() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               {mainFeatures.map((feature, index) => (
                 <div
                   key={index}
@@ -928,10 +927,6 @@ export default function ModernMedicalServices() {
         </div>
       </div>
 
-      <SimplifiedBottomNav
-        currentSection="medical-services"
-        userRole="patient"
-      />
 
       {/* AI Assistant */}
       <FloatingAIButton onClick={openAssistant} />
