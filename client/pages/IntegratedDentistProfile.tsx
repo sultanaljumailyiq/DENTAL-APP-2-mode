@@ -178,7 +178,7 @@ const mockNotifications = [
     id: "4",
     type: "info",
     category: "patient",
-    title: "مريض جديد - تحد��ث الملف",
+    title: "مريض جديد - تحد��ث ا��ملف",
     message: "ا��ضم مريض جديد: فاطمة علي - مطلوب فحص أولي شامل",
     timestamp: "منذ ساعة",
     read: false,
@@ -215,7 +215,7 @@ const mockNotifications = [
     starred: false,
     priority: "medium",
     actionUrl: "/system/maintenance",
-    actionText: "المزيد من التفاصيل",
+    actionText: "الم��يد من التفاصيل",
     tags: ["صيانة", "نظام"],
   },
   {
@@ -447,7 +447,7 @@ const buildDashboardSections = (
       },
     });
 
-    // الإشعارات (متاح دا��ماً)
+    // الإشعارات (متاح دا����ماً)
     sections.push({
       id: "notifications",
       title: "الإشعارات",
@@ -487,7 +487,7 @@ const buildDashboardSections = (
       sections.push({
         id: "clinic-management",
         title: "إدارة العيادة",
-        description: "نظام شامل لإدار�� عيادتك والمواعيد",
+        description: "نظام شامل لإدار�� ��يادتك والمواعيد",
         icon: Building2,
         path: "/dentist-hub?section=clinic",
         color: "teal",
@@ -784,6 +784,8 @@ export default function IntegratedDentistProfile() {
   const [selectedSection, setSelectedSection] = useState<string>("overview");
   const [selectedSubSection, setSelectedSubSection] = useState<string>("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [navMode, setNavMode] = useState<"side" | "top" | "bottom" | "fab">("side");
+  const [fabOpen, setFabOpen] = useState(false);
   const [expandedSidebarItems, setExpandedSidebarItems] = useState<string[]>([
     "overview",
   ]);
@@ -1435,7 +1437,7 @@ export default function IntegratedDentistProfile() {
           <div className="text-center p-6 bg-blue-50 rounded-xl">
             <Package className="w-12 h-12 text-blue-600 mx-auto mb-3" />
             <h3 className="font-semibold text-gray-900 mb-1">
-              المنتجات المفضلة
+              المنتجات ��لمفضلة
             </h3>
             <p className="text-2xl font-bold text-blue-600">
               {currentUser.stats.favoriteProducts}
@@ -1747,7 +1749,7 @@ export default function IntegratedDentistProfile() {
                 },
                 {
                   label: "إشعارات التسويق",
-                  description: "عروض خاصة ونشرات إخبارية",
+                  description: "عروض خا��ة ونشرات إخبارية",
                   enabled: false,
                 },
               ].map((setting, index) => (
@@ -1860,7 +1862,7 @@ export default function IntegratedDentistProfile() {
                     <CreditCard className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-sm font-medium text-gray-900">
-                    طرق الدفع
+                    طرق الد��ع
                   </span>
                 </Link>
 
@@ -1984,7 +1986,7 @@ export default function IntegratedDentistProfile() {
           <div className="h-full overflow-y-auto py-6">
             <div className="px-4 mb-6">
               <h2 className="text-lg font-bold text-gray-900">مركز الأطباء</h2>
-              <p className="text-sm text-gray-600">النظام المتكامل</p>
+              <p className="text-sm text-gray-600">النظام المتك��مل</p>
             </div>
 
             <nav className="px-4 space-y-2">
