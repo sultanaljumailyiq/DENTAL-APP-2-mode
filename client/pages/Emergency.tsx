@@ -31,7 +31,7 @@ const emergencyServices = [
   {
     id: "dental-emergency",
     title: "طوارئ الأسنان",
-    description: "آلام الأسنان الحادة والطوارئ الط��ية",
+    description: "آلام الأ��نان الحادة والطوارئ الط��ية",
     icon: Heart,
     phone: "0790-123-4567",
     available: true,
@@ -147,7 +147,7 @@ export default function Emergency() {
         hidden={true}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-16">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-16 overflow-x-hidden">
         {/* Back Button */}
         <div className="bg-white border-b border-red-200 py-4">
           <div className="max-w-6xl mx-auto px-4">
@@ -162,7 +162,7 @@ export default function Emergency() {
         </div>
 
         {/* Emergency Header */}
-        <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-700 text-white py-8">
+        <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-700 text-white py-6 sm:py-8">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center">
               <div className="flex justify-center mb-4">
@@ -195,7 +195,7 @@ export default function Emergency() {
 
         <div className="max-w-6xl mx-auto px-4 py-8">
           {/* Quick Actions */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-sm:flex max-sm:flex-row">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             <button className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 rounded-2xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg">
               <Phone className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">اتصال طارئ</h3>
@@ -214,7 +214,7 @@ export default function Emergency() {
             <Link
               to="/medical-services"
               onClick={() => {
-                // التأكد من أن القسم النشط هو الطوارئ وإمكانية التمرير للخريطة
+                // التأكد من أن القسم النشط هو الط��ارئ وإمكانية التمرير للخريطة
                 setTimeout(() => {
                   const mapElement = document.getElementById("medical-map");
                   if (mapElement) {
@@ -320,9 +320,9 @@ export default function Emergency() {
               <Hospital className="w-6 h-6 text-blue-600" />
               المستشفيات ا��قريبة
             </h2>
-            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6">
+            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-2">
               {nearbyHospitals.map((hospital, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg p-6">
+                <div key={index} className="bg-white rounded-xl shadow-lg p-6 min-w-[260px] md:min-w-0 snap-start">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="font-bold text-lg text-gray-900 mb-1">
@@ -401,7 +401,7 @@ export default function Emergency() {
                 تعلم كيفية التعامل مع الحالات الطارئة الشائعة قبل وصول الإسعاف
               </p>
 
-              <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 {firstAidScenarios.map((scenario) => (
                   <div
                     key={scenario.id}

@@ -24,6 +24,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ClinicSubNav from "@/components/ClinicSubNav";
 
 // Mock appointments data - shared with clinic_old system
 const mockAppointments = [
@@ -250,6 +251,7 @@ const ClinicNewReservations: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <ClinicSubNav />
         {/* Date Navigation */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
           <div className="flex items-center justify-between mb-4">
@@ -350,7 +352,7 @@ const ClinicNewReservations: React.FC = () => {
                 <p className="text-2xl font-bold text-gray-900">
                   {todayStats.total}
                 </p>
-                <p className="text-sm text-gray-600">إجمالي المواعيد</p>
+                <p className="text-sm text-gray-600">إجما��ي المواعيد</p>
               </div>
             </div>
           </div>

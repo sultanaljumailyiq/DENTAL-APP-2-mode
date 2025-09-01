@@ -50,6 +50,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import EnhancedAIAssistantIntegration from "@/components/EnhancedAIAssistantIntegration";
+import ClinicSubNav from "@/components/ClinicSubNav";
 
 // Mock clinic data - will be shared with clinic_old
 const mockClinicData = {
@@ -137,7 +138,7 @@ const clinicSections = [
   },
   {
     id: "staff",
-    title: "الموظفين",
+    title: "الموظفي��",
     description: "إدارة فريق العمل والصلاحيات",
     icon: UserPlus,
     color: "indigo",
@@ -291,6 +292,7 @@ const ClinicNewDashboard: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <ClinicSubNav />
         {/* Quick Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">

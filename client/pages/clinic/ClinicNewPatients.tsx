@@ -27,6 +27,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ClinicSubNav from "@/components/ClinicSubNav";
 
 // Mock patients data - shared with clinic_old system
 const mockPatients = [
@@ -98,7 +99,7 @@ const mockPatients = [
     priority: "normal",
     totalVisits: 6,
     totalSpent: 950000,
-    notes: "تقويم أسنان، المرحلة الثانية",
+    notes: "تقويم أسنان، المرح��ة الثانية",
     medicalHistory: ["تقويم أسنان"],
     avatar: null,
   },
@@ -217,6 +218,7 @@ const ClinicNewPatients: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <ClinicSubNav />
         {/* Search and Filters */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
