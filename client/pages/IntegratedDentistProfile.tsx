@@ -224,7 +224,7 @@ const mockNotifications = [
     category: "message",
     title: "رسال�� جديدة من د. سارة",
     message:
-      "د. سارة أحمد أرسلت لك تقرير حالات اليوم - 8 حالات تجميل و 12 حالة علاج",
+      "د. سارة أحمد أرسلت لك تقرير حالات اليوم - 8 حالات تجمي�� و 12 حالة علاج",
     timestamp: "منذ 4 ساعات",
     read: false,
     starred: false,
@@ -1881,7 +1881,7 @@ export default function IntegratedDentistProfile() {
                     <Crown className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-sm font-medium text-gray-900">
-                    إعدادات المدير العام
+                    إعدادات المدير ��لعام
                   </span>
                 </Link>
 
@@ -1908,79 +1908,8 @@ export default function IntegratedDentistProfile() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
-      {/* هيدر التطبيق */}
-      <div className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="px-4 py-3">
-          <div className="flex items-center justify-between">
-            {/* معلومات المستخدم */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors md:hidden"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-3">
-                <img
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
-                  className="w-10 h-10 rounded-xl object-cover ring-2 ring-blue-500/20"
-                />
-                <div className="hidden md:block">
-                  <h1 className="text-lg font-bold text-gray-900">
-                    {currentUser.name}
-                  </h1>
-                  <p className="text-sm text-gray-600">
-                    {currentUser.specialization}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* أدوات التحكم */}
-            <div className="flex items-center gap-2">
-              {/* ��افذة الإشعارات المنبثقة */}
-              <NotificationPopover
-                trigger={
-                  <div className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <Bell className="w-5 h-5" />
-                    {currentUser.stats.unreadNotifications > 0 && (
-                      <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                        {currentUser.stats.unreadNotifications}
-                      </span>
-                    )}
-                  </div>
-                }
-                isOpen={isNotificationOpen}
-                onOpenChange={setIsNotificationOpen}
-                notifications={mockNotifications}
-              />
-
-              {/* نافذة الملف الشخصي المنبثقة */}
-              <ProfilePopover
-                trigger={
-                  <img
-                    src={currentUser.avatar}
-                    alt={currentUser.name}
-                    className="w-8 h-8 rounded-lg object-cover ring-2 ring-blue-500/20 cursor-pointer hover:ring-blue-500/40 transition-all"
-                  />
-                }
-                isOpen={isProfileOpen}
-                onOpenChange={setIsProfileOpen}
-                user={currentUser}
-              />
-
-              <Link
-                to="/settings"
-                className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <Settings className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* هيدر مبسط وفق التعديل */}
+      <div className="bg-white border-b border-gray-200 shadow-sm" />
 
       <div className="flex">
         {/* القائمة الجانبية */}
