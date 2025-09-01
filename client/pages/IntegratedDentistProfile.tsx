@@ -185,7 +185,7 @@ const mockNotifications = [
     starred: false,
     priority: "medium",
     actionUrl: "/patients/new/456",
-    actionText: "عرض الملف",
+    actionText: "عرض ا��ملف",
     avatar:
       "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
     tags: ["مريض جديد", "فحص أولي"],
@@ -224,7 +224,7 @@ const mockNotifications = [
     category: "message",
     title: "رسال�� جديدة من د. سارة",
     message:
-      "د. سارة أحمد أرسلت لك تقرير حالات اليوم - 8 حالات تجمي�� و 12 حالة علاج",
+      "د. سارة أحمد أرسلت لك تقرير حالات اليوم - 8 حالات تجميل و 12 حالة علاج",
     timestamp: "منذ 4 ساعات",
     read: false,
     starred: false,
@@ -377,7 +377,7 @@ const mockClinics: Clinic[] = [
   },
 ];
 
-// بيانات وهمية للمستخدم الحالي مع حماية من الأخطاء
+// ��يانات وهمية للمستخدم الحالي مع حماية من الأخطاء
 const getCurrentUser = (): UserProfile => ({
   id: "1",
   role: "clinic_owner",
@@ -464,7 +464,7 @@ const buildDashboardSections = (
       },
     });
 
-    // المف��لة (متاح دائماً)
+    // المف����لة (متاح دائماً)
     sections.push({
       id: "favorites",
       title: "المفضلة",
@@ -547,7 +547,7 @@ const buildDashboardSections = (
   }
 };
 
-// بناء عن��صر القائمة الجانبية مع حماية من ا��أخطاء
+// ��ناء عن��صر القائمة الجانبية مع حماية من ا��أخطاء
 const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
   try {
     const permissions = rolePermissions[userRole] || {};
@@ -1678,7 +1678,7 @@ export default function IntegratedDentistProfile() {
               </div>
             </div>
             <div className="text-2xl font-bold text-indigo-600">45</div>
-            <div className="text-sm text-gray-600">تقرير متاح</div>
+            <div className="text-sm text-gray-600">تقر��ر متاح</div>
           </Link>
         </div>
       </div>
@@ -1710,7 +1710,7 @@ export default function IntegratedDentistProfile() {
           {/* إعدادات ال��ساب */}
           <div className="border-b border-gray-200 pb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              إع��ادات الحساب
+              إع���ادات الحساب
             </h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -1881,7 +1881,7 @@ export default function IntegratedDentistProfile() {
                     <Crown className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-sm font-medium text-gray-900">
-                    إعدادات المدير ��لعام
+                    إعدادات المدير العام
                   </span>
                 </Link>
 
@@ -1910,6 +1910,37 @@ export default function IntegratedDentistProfile() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
       {/* هيدر مبسط وفق التعديل */}
       <div className="bg-white border-b border-gray-200 shadow-sm" />
+
+      {/* محوّل أنماط القائمة */}
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-gray-600">نمط القائمة:</span>
+          {([
+            { id: "side", label: "جانبية" },
+            { id: "top", label: "علوية" },
+            { id: "bottom", label: "سفلية" },
+            { id: "fab", label: "زر عائم" },
+          ] as const).map((m) => (
+            <button
+              key={m.id}
+              onClick={() => {
+                setNavMode(m.id);
+                const params = new URLSearchParams(location.search);
+                params.set("nav", m.id);
+                navigate(`/dentist-hub?${params.toString()}`);
+              }}
+              className={cn(
+                "px-3 py-1 rounded-lg border transition-colors",
+                navMode === m.id
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100",
+              )}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="flex">
         {/* القائمة الجانبية */}
