@@ -468,7 +468,7 @@ const buildDashboardSections = (
     sections.push({
       id: "favorites",
       title: "المفضلة",
-      description: "الوظائف والمنتجات المحفوظة",
+      description: "الوظائف والمنتجات المح��وظة",
       icon: Heart,
       path: "/dentist-hub?section=favorites",
       color: "rose",
@@ -593,7 +593,7 @@ const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
         children: [
           {
             id: "appointments",
-            label: "إشعارات المواعيد",
+            label: "��شعارات المواعيد",
             icon: Calendar,
             path: "/dentist-hub?section=notifications&sub=appointments",
             badge: 5,
@@ -768,7 +768,7 @@ const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
 
 // المكون الرئيسي م�� error handling محسن
 export default function IntegratedDentistProfile() {
-  // استخدام Context مع error handling
+  // استخ��ام Context مع error handling
   const i18n = useI18n();
   const favoritesContext = useFavorites();
   const bookmarksContext = useBookmarks();
@@ -1944,6 +1944,7 @@ export default function IntegratedDentistProfile() {
 
       <div className="flex">
         {/* القائمة الجانبية */}
+        {navMode === "side" && (
         <div
           className={cn(
             "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0",
@@ -2053,23 +2054,94 @@ export default function IntegratedDentistProfile() {
             </nav>
           </div>
         </div>
+        )}
 
         {/* overlay للجوال */}
-        {isSidebarOpen && (
+        {isSidebarOpen && navMode === "side" && (
           <div
             className="fixed inset-0 z-30 bg-black/50 md:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
 
-        {/* المحتوى الرئيسي */}
+        {/* المحتوى الرئ��سي */}
         <div className="flex-1 min-w-0">
+          {navMode === "top" && (
+            <div className="sticky top-16 z-20 bg-white/90 backdrop-blur border-b border-gray-200">
+              <div className="max-w-7xl mx-auto px-4 py-2 overflow-x-auto">
+                <div className="flex gap-2 w-max">
+                  {sidebarItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = selectedSection === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => navigateToSection(item.id)}
+                        className={cn(
+                          "inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm whitespace-nowrap border",
+                          isActive
+                            ? "bg-blue-50 border-blue-200 text-blue-700"
+                            : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100",
+                        )}
+                      >
+                        <Icon className="w-4 h-4" />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
           <main className="p-6">{renderSectionContent()}</main>
         </div>
       </div>
 
-      {/* الشريط السفلي ال��وحد النهائي */}
-      <FinalUnifiedBottomNav userRole={currentUser.role} />
+      {navMode === "fab" && (
+        <>
+          <button
+            onClick={() => setFabOpen((v) => !v)}
+            className="fixed bottom-24 right-4 z-50 w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center hover:bg-blue-700"
+            aria-label="فتح القائمة"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          {fabOpen && (
+            <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setFabOpen(false)} />
+          )}
+          {fabOpen && (
+            <div className="fixed bottom-40 right-4 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 w-72 max-h-[60vh] overflow-y-auto p-3">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-900">القائمة</span>
+                <button onClick={() => setFabOpen(false)} className="px-2 py-1 text-xs bg-gray-100 rounded-md">إغلاق</button>
+              </div>
+              <div className="space-y-1">
+                {sidebarItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => { navigateToSection(item.id); setFabOpen(false); }}
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50"
+                    >
+                      <div className="flex items-center gap-2 text-gray-800">
+                        <Icon className="w-4 h-4" />
+                        <span className="text-sm">{item.label}</span>
+                      </div>
+                      {item.badge && item.badge > 0 && (
+                        <span className="px-2 py-0.5 text-xs bg-red-500 text-white rounded-full">{item.badge}</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+      {(navMode === "bottom" || navMode === "fab") && (
+        <FinalUnifiedBottomNav userRole={currentUser.role} />
+      )}
     </div>
   );
 }
