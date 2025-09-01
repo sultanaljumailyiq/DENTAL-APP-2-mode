@@ -172,7 +172,7 @@ const mockNotifications = [
     priority: "high",
     actionUrl: "/inventory/reorder",
     actionText: "اطلب الآن",
-    tags: ["��خزون", "حرج"],
+    tags: ["��خزون", "��رج"],
   },
   {
     id: "4",
@@ -816,9 +816,13 @@ export default function IntegratedDentistProfile() {
       const urlParams = new URLSearchParams(location.search);
       const section = urlParams.get("section") || "overview";
       const subSection = urlParams.get("sub") || "";
+      const nav = urlParams.get("nav") as any;
 
       setSelectedSection(section);
       setSelectedSubSection(subSection);
+      if (nav && ["side", "top", "bottom", "fab"].includes(nav)) {
+        setNavMode(nav);
+      }
     } catch (error) {
       console.error("Error parsing URL params:", error);
       setSelectedSection("overview");
@@ -838,15 +842,18 @@ export default function IntegratedDentistProfile() {
   // التنقل بين الأقسام
   const navigateToSection = (section: string, subSection?: string) => {
     try {
-      const url = `/dentist-hub?section=${section}${subSection ? `&sub=${subSection}` : ""}`;
-      navigate(url);
+      const params = new URLSearchParams(location.search);
+      params.set("section", section);
+      if (subSection) params.set("sub", subSection); else params.delete("sub");
+      params.set("nav", navMode);
+      navigate(`/dentist-hub?${params.toString()}`);
       setIsSidebarOpen(false);
     } catch (error) {
       console.error("Error navigating to section:", error);
     }
   };
 
-  // عرض محتوى القسم المختار
+  // عرض محتوى القسم ا��مختار
   const renderSectionContent = () => {
     try {
       switch (selectedSection) {
