@@ -439,7 +439,7 @@ export default function ModernMedicalServices() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8">
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-                منصتك الطبية الشاملة
+                منصت�� الطبية الشاملة
               </h1>
               <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
                 احصل على أفضل الخدمات الطبية من التشخيص الذكي ��لى البحث عن
@@ -734,6 +734,8 @@ export default function ModernMedicalServices() {
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
                     description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
                     maxResults={12}
+                    initialFilter="all"
+                    showFilters={true}
                   />
                 </div>
               </div>
@@ -750,8 +752,10 @@ export default function ModernMedicalServices() {
                     </h3>
                   </div>
                   <CompactInteractiveMap
-                    title="الخريطة التفاعلية للعيادات والم��تشفيات القريبة"
+                    title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
                     description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    initialFilter="all"
+                    showFilters={true}
                   />
                 </div>
               </div>
