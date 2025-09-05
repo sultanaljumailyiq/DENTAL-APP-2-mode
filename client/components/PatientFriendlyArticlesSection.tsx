@@ -39,7 +39,7 @@ const articlesData = [
   },
   {
     id: 2,
-    title: "التغذية السليمة وأثرها على الصحة العامة",
+    title: "التغذية السليمة وأثره�� على الصحة العامة",
     excerpt:
       "دليل شامل للتغذية الصحية وكيفية اختيار الأطعمة المناسبة لصحة أفضل",
     category: "التغذية",
@@ -232,7 +232,7 @@ export default function PatientFriendlyArticlesSection({
           )}
         </div>
 
-        {/* أزرار الإجراءات */}
+        {/* أزرار ال��جراءات */}
         <div className="flex items-center justify-between">
           <Link
             to={`/articles/${article.id}`}
@@ -330,12 +330,12 @@ export default function PatientFriendlyArticlesSection({
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 mb-12 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
             {filteredArticles
               .filter((article) => article.featured)
               .slice(0, 3)
               .map((article) => (
-                <ArticleCard key={article.id} article={article} featured />
+                <div className="min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-start"><ArticleCard key={article.id} article={article} featured /></div>
               ))}
           </div>
         </div>
@@ -361,9 +361,9 @@ export default function PatientFriendlyArticlesSection({
         </div>
 
         {filteredArticles.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
             {filteredArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
+              <div key={article.id} className="min-w-[240px] sm:min-w-[300px] md:min-w-0 snap-start"><ArticleCard article={article} /></div>
             ))}
           </div>
         ) : (
@@ -381,22 +381,6 @@ export default function PatientFriendlyArticlesSection({
         )}
       </div>
 
-      {/* دعوة للعمل */}
-      {currentUserIsPatient && (
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">هل تحتاج لاستشارة طبية؟</h3>
-          <p className="text-purple-100 mb-6">
-            احجز موعداً مع أحد أطبائنا المتخصصين للحصول على استشارة شخصية
-          </p>
-          <Link
-            to="/medical-services"
-            className="inline-flex items-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
-          >
-            <BookOpen className="w-5 h-5" />
-            <span>احجز استشارة الآن</span>
-          </Link>
-        </div>
-      )}
     </div>
   );
 }
