@@ -389,7 +389,7 @@ export default function ModernMedicalServices() {
     medicalCategories[0];
 
   const handleCardClick = (path: string) => {
-    // التنقل للخرائط ضم�� نفس الصفحة
+    // التنقل للخرائط ضم�� ن��س الصفحة
     if (path === "#clinic-map" || path === "#emergency-map" || path === "#directory-map") {
       const targetId =
         path === "#directory-map" ? "directory-map" : path.substring(1);
@@ -439,7 +439,7 @@ export default function ModernMedicalServices() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8">
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-                منصت�� الطبية الشاملة
+                منصتك الطبية الشاملة
               </h1>
               <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
                 احصل على أفضل الخدمات الطبية من التشخيص الذكي ��لى البحث عن
@@ -762,7 +762,7 @@ export default function ModernMedicalServices() {
             )}
 
             {/* Service Cards Section - Only show for non-emergency categories */}
-            {activeCategory !== "emergency" && (
+            {activeCategory !== "directory" && (
               <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap justify-center mb-8">
                 {currentCategory.cards.map((card) => (
                   <div
