@@ -26,6 +26,7 @@ import {
 import { cn } from "@/lib/utils";
 import ModernUnifiedHeader from "@/components/ModernUnifiedHeader";
 import UltraModernBottomNav from "@/components/UltraModernBottomNav";
+import UnifiedPlaceCard from "@/components/UnifiedPlaceCard";
 
 const emergencyServices = [
   {
@@ -76,7 +77,7 @@ const nearbyHospitals = [
     hasEmergency: true,
   },
   {
-    name: "مستشفى الكند��",
+    name: "مستشفى الكندي",
     distance: "4.1 كم",
     address: "شارع الجادرية، بغداد",
     phone: "0790-111-4444",
