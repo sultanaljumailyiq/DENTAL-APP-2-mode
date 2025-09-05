@@ -200,7 +200,7 @@ const emergencyScenarios: EmergencyScenario[] = [
     icon: <Activity className="h-6 w-6" />,
     urgency: "critical",
     description: "انقطاع تدفق الدم إلى جزء من الدماغ",
-    duration: "الوقت حرج جداً",
+    duration: "الوقت حرج جد��ً",
     categories: ["دماغية", "حرجة"],
     steps: [
       "استخدم اختبار FAST:",
@@ -432,7 +432,7 @@ const FirstAidGuide: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {emergencyNumbers.map((number) => (
               <a
-                key={number.number}
+                key={`${number.name}-${number.number}`}
                 href={`tel:${number.number}`}
                 className="bg-red-100 hover:bg-red-200 p-4 rounded-xl text-center transition-colors"
               >
