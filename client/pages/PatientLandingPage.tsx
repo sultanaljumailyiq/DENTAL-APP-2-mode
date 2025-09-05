@@ -44,7 +44,7 @@ const featuredArticles = [
   {
     id: 3,
     title: "تبييض الأسنان بطرق طبيعية آمنة",
-    excerpt: "طرق طبيعية وآمنة لتبييض أسنانك في المنزل بدون إضرار بالمينا",
+    excerpt: "طرق طبيعية وآمنة ل��بييض أسنانك في المنزل بدون إضرار بالمينا",
     image: "✨",
     readTime: "6 دقائق",
     author: "د. سارة خالد",
@@ -293,16 +293,15 @@ export default function PatientLandingPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible">
               {featuredArticles.map((article) => (
-                <div key={article.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden">
+                <div key={article.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-start">
                   <div className="p-6">
                     <div className="text-4xl mb-4 text-center">{article.image}</div>
                     <div className="text-xs text-green-600 font-medium mb-2">مميز</div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{article.title}</h3>
                     <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
-                      <span>{article.author}</span>
+                    <div className="flex items-center justify-end text-xs text-gray-500 mb-4">
                       <span>{article.readTime}</span>
                     </div>
                     <div className="flex items-center justify-between">
