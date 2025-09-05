@@ -79,7 +79,7 @@ const mockClinics: Clinic[] = [
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
     phone: "+964 770 123 4567",
     status: "available",
-    services: ["زراعة الأسنان", "تبييض الأسنان", "تقويم الأسنان", "عل��ج العصب"],
+    services: ["زراعة الأسنان", "تبييض الأسنان", "تقويم الأسنان", "علاج العصب"],
     openHours: "8:00 ص - 8:00 م",
     certification: true,
     doctors: [
@@ -206,7 +206,7 @@ const mockClinics: Clinic[] = [
         specialties: ["طب الطوارئ", "الإسعافات الأولية"],
       },
     ],
-    specialties: ["طب الطوار��", "الرعاية السريعة"],
+    specialties: ["طب الطوار��", "��لرعاية السريعة"],
     amenities: ["خدمة 24/7", "سيارة إسعاف", "معدات طوارئ"],
     priceRange: "30 - 200 ألف دينار",
     emergencyPhone: "+964 790 555 0000",
@@ -285,8 +285,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
   filteredClinics = filteredClinics.slice(0, maxResults);
 
   const handleBooking = (clinic: Clinic) => {
-    // التوجه إلى صفحة الحجز المحسنة للهاتف
-    navigate(`/mobile-booking/${clinic.clinicId}`);
+    navigate(`/modern-booking/${clinic.clinicId}`);
   };
 
   return (
@@ -352,7 +351,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
           <div
             key={clinic.id}
             className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
-            onClick={() => handleBooking(clinic)}
+            onClick={() => navigate(`/medical-services?section=directory#directory-map`) }
           >
             {/* Compact Clinic Image */}
             <div className="relative h-20 md:h-24 bg-gradient-to-br from-teal-50 to-blue-50 flex items-center justify-center overflow-hidden">
@@ -427,10 +426,9 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
                     e.stopPropagation();
                     handleBooking(clinic);
                   }}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors font-medium flex items-center justify-center gap-1 text-xs"
+                  className="flex-1 bg-gray-900 hover:bg-black text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors font-medium flex items-center justify-center gap-1 text-xs"
                 >
-                  <Calendar className="w-3 h-3" />
-                  <span className="hidden md:inline">احجز</span>
+                  <span>تفاصيل</span>
                 </button>
                 <button
                   onClick={(e) => {
