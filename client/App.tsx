@@ -283,6 +283,7 @@ const App = () => (
                           <Route path="/emergency/first-aid" element={<FirstAidGuide />} />
                           <Route path="/emergency/hospitals" element={<EmergencyHospitals />} />
                           <Route path="/emergency/pain-management" element={<PainManagement />} />
+                          <Route path="/emergency/dental" element={<DentalEmergency />} />
                           <Route
                             path="/ai-assistant"
                             element={<AIAssistantPage />}
@@ -491,7 +492,7 @@ const App = () => (
                             }
                           />
 
-                          {/* System Admin Routes - فقط لمدير النظام */}
+                          {/* System Admin Routes - فقط ��مدير النظام */}
                           <Route
                             path="/admin"
                             element={
