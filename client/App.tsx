@@ -100,6 +100,7 @@ import MobileBookingPage from "./pages/MobileBookingPage";
 import FirstAidGuide from "./pages/FirstAidGuide";
 import EmergencyHospitals from "./pages/EmergencyHospitals";
 import PainManagement from "./pages/PainManagement";
+import DentalEmergency from "./pages/DentalEmergency";
 
 // النظام الجديد /clinic
 import ClinicReservations from "./pages/clinic/ClinicReservations";
