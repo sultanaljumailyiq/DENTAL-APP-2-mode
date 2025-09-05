@@ -38,7 +38,7 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
               المقالات والنصائح الطبية
             </h1>
             <p className="text-xl text-purple-100 mb-8">
-              اقرأ أحدث المقالات الطبية ونصائح الصحة من أطباء متخصصين
+              اقرأ أحدث ا��مقالات الطبية ونصائح الصحة من أطباء متخصصين
             </p>
 
             {/* Navigation to First Aid Section */}
@@ -52,21 +52,6 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
               </a>
             </div>
 
-            {/* Quick stats */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">150+</div>
-                <p className="text-purple-100">مقال طبي</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">50+</div>
-                <p className="text-purple-100">طبيب كاتب</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">10k+</div>
-                <p className="text-purple-100">قارئ شهرياً</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -164,27 +149,6 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
         <PatientFriendlyArticlesSection userRole={userRole} />
       </div>
 
-      {/* Newsletter Section */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-4">اشترك في النشرة الطبية</h2>
-            <p className="text-purple-100 mb-8">
-              احصل على أحدث المقالات والنصائح الطبية مباشرة في بريدك الإلكتروني
-            </p>
-            <div className="flex gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="بريدك الإلكتروني"
-                className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <button className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
-                اشتراك
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
