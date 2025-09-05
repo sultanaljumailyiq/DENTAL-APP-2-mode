@@ -39,7 +39,7 @@ const articlesData = [
   },
   {
     id: 2,
-    title: "التغذية السليمة وأثره�� على الصحة العامة",
+    title: "التغذية السليمة وأثرها على الصحة العامة",
     excerpt:
       "دليل شامل للتغذية الصحية وكيفية اختيار الأطعمة المناسبة لصحة أفضل",
     category: "التغذية",
@@ -58,7 +58,7 @@ const articlesData = [
     category: "الصحة النفسية",
     author: "د. محمد الزهراني",
     publishDate: "2024-01-13",
-    readTime: "6 دقائق",
+    readTime: "6 دق��ئق",
     views: 1890,
     likes: 234,
     image: "/placeholder.svg",
@@ -232,7 +232,7 @@ export default function PatientFriendlyArticlesSection({
           )}
         </div>
 
-        {/* أزرار ال��جراءات */}
+        {/* أزرار الإجراءات */}
         <div className="flex items-center justify-between">
           <Link
             to={`/articles/${article.id}`}
@@ -335,7 +335,7 @@ export default function PatientFriendlyArticlesSection({
               .filter((article) => article.featured)
               .slice(0, 3)
               .map((article) => (
-                <div className="min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-start"><ArticleCard key={article.id} article={article} featured /></div>
+                <div key={article.id} className="min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-start"><ArticleCard article={article} featured /></div>
               ))}
           </div>
         </div>
