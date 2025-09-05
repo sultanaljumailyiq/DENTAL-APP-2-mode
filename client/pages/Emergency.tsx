@@ -321,6 +321,7 @@ export default function Emergency() {
               <Link to="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</Link>
               <Link to="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</Link>
               <Link to="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</Link>
+              <Link to="/emergency/dental" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-medium hover:bg-amber-200">طوارئ الأسنان</Link>
             </div>
           </div>
 
