@@ -98,6 +98,8 @@ import PatientDetailsPage from "./pages/PatientDetailsPage";
 import AdminClinicDashboard from "./pages/AdminClinicDashboard";
 import MobileBookingPage from "./pages/MobileBookingPage";
 import FirstAidGuide from "./pages/FirstAidGuide";
+import EmergencyHospitals from "./pages/EmergencyHospitals";
+import PainManagement from "./pages/PainManagement";
 
 // النظام الجديد /clinic
 import ClinicReservations from "./pages/clinic/ClinicReservations";
@@ -277,10 +279,9 @@ const App = () => (
                             element={<IntegratedDentistProfile />}
                           />
                           <Route path="/emergency" element={<Emergency />} />
-                          <Route
-                            path="/emergency/first-aid"
-                            element={<FirstAidGuide />}
-                          />
+                          <Route path="/emergency/first-aid" element={<FirstAidGuide />} />
+                          <Route path="/emergency/hospitals" element={<EmergencyHospitals />} />
+                          <Route path="/emergency/pain-management" element={<PainManagement />} />
                           <Route
                             path="/ai-assistant"
                             element={<AIAssistantPage />}
