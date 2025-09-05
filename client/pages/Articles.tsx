@@ -38,18 +38,30 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
               المقالات والنصائح الطبية
             </h1>
             <p className="text-xl text-purple-100 mb-8">
-              اقرأ أحدث ا��مقالات الطبية ونصائح الصحة من أطباء متخصصين
+              اقرأ أحدث المقالات الطبية ونصائح الصحة من أطباء متخصصين
             </p>
 
             {/* Navigation to First Aid Section */}
-            <div className="mt-8">
+            <div className="mt-6 flex items-center justify-center gap-2 flex-wrap">
               <a
                 href="#first-aid"
-                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center gap-2"
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
               >
-                <BookOpen className="w-5 h-5" />
-                دليل الإسعافات الأولية
+                <BookOpen className="w-4 h-4" />
+                الإسعافات الأولية
               </a>
+              <Link
+                to="/emergency/pain-management"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
+              >
+                إدارة الألم
+              </Link>
+              <Link
+                to="/emergency"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
+              >
+                طوارئ
+              </Link>
             </div>
 
           </div>
@@ -114,7 +126,7 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
               </h3>
               <p className="text-gray-600 mb-4">
                 قائمة بالأدوات الأساسية التي يجب توفرها في حقيبة الإسعافات
-                الأولية
+                الأولي��
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• الضمادات والشاش</li>
