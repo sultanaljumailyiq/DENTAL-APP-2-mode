@@ -303,9 +303,9 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذا ا��تشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
-                  اس��شارة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
+                  اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function LandingPage() {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                احصل على تشخيص أسنان فوري بالذكاء الاصطناعي، ابحث عن أفضل
+                احصل على تشخيص ��سنان فوري بالذكاء الاصطناعي، ابحث عن أفضل
                 العيادات بالقرب منك، واحجز المواعيد أونلاين. انضم للآلاف الذين
                 يثقون بزيندنتا لصحة أفواههم.
               </p>
@@ -486,11 +486,11 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="flex flex-row gap-8 overflow-x-auto">
+          <div className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory">
             {articles.map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[360px] md:min-w-[400px]"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[280px] sm:min-w-[320px] md:min-w-[360px] snap-start"
               >
                 <img
                   src={article.image}
@@ -513,16 +513,10 @@ export default function LandingPage() {
                     {article.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
-                          {article.author}
-                        </p>
-                        <p className="text-xs text-gray-500">{article.date}</p>
-                      </div>
+                    <div className="text-xs text-gray-500 flex items-center gap-2">
+                      <span>{article.date}</span>
+                      <span>•</span>
+                      <span>{article.readTime}</span>
                     </div>
                     <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
                       اقرأ المزيد <ArrowRight className="w-4 h-4" />
