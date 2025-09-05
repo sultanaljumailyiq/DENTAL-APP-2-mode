@@ -154,7 +154,7 @@ const medicalCategories: MedicalCategory[] = [
   },
   {
     id: "removed-section",
-    title: "البحث عن العيادات ال��ريبة",
+    title: "البحث عن العيادات ال����يبة",
     description:
       "اعثر ع��ى أفضل العيادات والأطباء في منطقتك بالخريطة التفاعلية",
     icon: MapPin,
@@ -188,7 +188,7 @@ const medicalCategories: MedicalCategory[] = [
       },
       {
         id: "doctor-profiles",
-        title: "ملفات الأطباء",
+        title: "��لفات الأطباء",
         description: "تعرف عل�� تخصصات وخبرات الأطباء",
         icon: Users,
         path: "/doctor-profiles",
@@ -223,7 +223,7 @@ const medicalCategories: MedicalCategory[] = [
     cards: [
       {
         id: "symptoms-checker",
-        title: "فحص الأعراض",
+        title: "فحص ��لأعراض",
         description: "ادخل أعراضك واحصل على ��شخيص أولي",
         icon: Activity,
         path: "/ai-diagnosis",
@@ -406,7 +406,7 @@ export default function ModernMedicalServices() {
     else if (path.startsWith("http")) {
       window.open(path, "_blank", "noopener,noreferrer");
     }
-    // التنقل للصفحات داخل التطب��ق
+    // التنق�� للصفحات داخل التطب��ق
     else if (path.startsWith("/")) {
       navigate(path);
     }
@@ -442,7 +442,7 @@ export default function ModernMedicalServices() {
                 منصتك الطبية الشاملة
               </h1>
               <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
-                احصل على أفضل الخدمات الطبية من التشخيص الذكي ��لى البحث عن
+                احصل على أفضل الخدم��ت الطبية من التشخيص الذكي ��لى البحث عن
                 العيادات القريبة
               </p>
 
@@ -479,21 +479,6 @@ export default function ModernMedicalServices() {
                 </Link>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                {quickStats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4"
-                  >
-                    <div className="flex items-center justify-center mb-2">
-                      <stat.icon className="w-6 h-6" />
-                    </div>
-                    <div className="text-xl font-bold mb-1">{stat.value}</div>
-                    <div className="text-blue-100 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -732,7 +717,7 @@ export default function ModernMedicalServices() {
                   </div>
                   <CompactInteractiveMap
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
-                    description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    description="اعثر على أقرب العيادات والمستشفيات واحجز مو��دك بسهولة"
                     maxResults={12}
                     initialFilter="all"
                     showFilters={true}
