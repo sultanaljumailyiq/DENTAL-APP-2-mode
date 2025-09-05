@@ -314,6 +314,15 @@ export default function Emergency() {
             </div>
           </div>
 
+          {/* Quick Sub-navigation */}
+          <div className="mb-6 -mx-1">
+            <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory px-1">
+              <Link to="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</Link>
+              <Link to="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</Link>
+              <Link to="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</Link>
+            </div>
+          </div>
+
           {/* Nearby Hospitals */}
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
@@ -322,7 +331,7 @@ export default function Emergency() {
             </h2>
             <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-2">
               {nearbyHospitals.map((hospital, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg p-6 min-w-[260px] md:min-w-0 snap-start">
+                <div key={index} className="bg-white rounded-xl shadow-lg p-6 min-w-[45vw] sm:min-w-[300px] md:min-w-0 snap-start">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="font-bold text-lg text-gray-900 mb-1">
@@ -370,7 +379,7 @@ export default function Emergency() {
                 <h3 className="font-bold mb-3">في حالة ألم الأسنان الحاد:</h3>
                 <ul className="space-y-2 text-blue-100">
                   <li>• اشطف فمك بالماء الدافئ</li>
-                  <li>• استخدم خيط الأس��ان لإزالة أي طعام</li>
+                  <li>• استخدم خيط الأس��ان لإزال�� أي طعام</li>
                   <li>• خذ مسكن للألم حسب التوجيهات</li>
                   <li>• تجنب وضع الأسبرين على اللثة</li>
                 </ul>
