@@ -60,6 +60,8 @@ interface CompactInteractiveMapProps {
   description?: string;
   showOnHomePage?: boolean;
   maxResults?: number;
+  initialFilter?: "all" | "nearby" | "247" | "emergency";
+  showFilters?: boolean;
 }
 
 // بيانات تجريبية للعيادات
@@ -77,7 +79,7 @@ const mockClinics: Clinic[] = [
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
     phone: "+964 770 123 4567",
     status: "available",
-    services: ["زراعة الأسنان", "تبييض الأسنان", "تقويم الأسنان", "علاج العصب"],
+    services: ["زراعة الأسنان", "تبييض الأسنان", "تقويم الأسنان", "عل��ج العصب"],
     openHours: "8:00 ص - 8:00 م",
     certification: true,
     doctors: [
@@ -246,22 +248,41 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
   description = "اعثر على أقرب العيادات واحجز موعدك بسهولة",
   showOnHomePage = false,
   maxResults = 6,
+  initialFilter = "all",
+  showFilters = true,
 }) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedClinic, setSelectedClinic] = useState<Clinic | null>(null);
+  const [filter, setFilter] = useState<"all" | "nearby" | "247" | "emergency">(initialFilter);
 
-  // Filter clinics based on search and limit results
-  const filteredClinics = mockClinics
-    .filter(
-      (clinic) =>
-        clinic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        clinic.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        clinic.services.some((service) =>
-          service.toLowerCase().includes(searchQuery.toLowerCase()),
-        ),
-    )
-    .slice(0, maxResults);
+  // Filter clinics based on search and selected filter
+  let filteredClinics = mockClinics.filter(
+    (clinic) =>
+      clinic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      clinic.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      clinic.services.some((service) =>
+        service.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+  );
+
+  if (filter === "emergency") {
+    filteredClinics = filteredClinics.filter(
+      (c) => c.type.includes("طوارئ") || c.services.some((s) => s.includes("طوارئ"))
+    );
+  } else if (filter === "247") {
+    filteredClinics = filteredClinics.filter(
+      (c) => (c.openHours && c.openHours.includes("24")) || (c.amenities && c.amenities.some((a) => a.includes("24/7")))
+    );
+  } else if (filter === "nearby") {
+    filteredClinics = [...filteredClinics].sort((a, b) => {
+      const da = parseFloat(a.distance);
+      const db = parseFloat(b.distance);
+      return isNaN(da) || isNaN(db) ? 0 : da - db;
+    });
+  }
+
+  filteredClinics = filteredClinics.slice(0, maxResults);
 
   const handleBooking = (clinic: Clinic) => {
     // التوجه إلى صفحة الحجز المحسنة للهاتف
@@ -289,7 +310,30 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
           </div>
         </div>
 
-        {/* Search */}
+        {/* Filters + Search */}
+        {showFilters && (
+          <div className="flex items-center gap-2 mb-3 overflow-x-auto">
+            {[
+              { id: "all", label: "الكل" },
+              { id: "nearby", label: "العيادات القريبة" },
+              { id: "247", label: "24/7" },
+              { id: "emergency", label: "الطوارئ" },
+            ].map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setFilter(f.id as any)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
+                  filter === f.id
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="relative">
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
