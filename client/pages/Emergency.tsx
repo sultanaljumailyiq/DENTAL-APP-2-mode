@@ -76,7 +76,7 @@ const nearbyHospitals = [
     hasEmergency: true,
   },
   {
-    name: "مستشفى الكندي",
+    name: "مستشفى الكند��",
     distance: "4.1 كم",
     address: "شارع الجادرية، بغداد",
     phone: "0790-111-4444",
@@ -331,39 +331,14 @@ export default function Emergency() {
             </h2>
             <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-2">
               {nearbyHospitals.map((hospital, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg p-6 min-w-[45vw] sm:min-w-[300px] md:min-w-0 snap-start">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-lg text-gray-900 mb-1">
-                        {hospital.name}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{hospital.distance}</span>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">
-                        {hospital.address}
-                      </p>
-                    </div>
-                    {hospital.hasEmergency && (
-                      <div className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                        طوارئ
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <a
-                      href={`tel:${hospital.phone}`}
-                      className="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center"
-                    >
-                      اتصال
-                    </a>
-                    <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                      الاتجاهات
-                    </button>
-                  </div>
-                </div>
+                <UnifiedPlaceCard
+                  key={index}
+                  name={hospital.name}
+                  distance={hospital.distance}
+                  address={hospital.address}
+                  phone={hospital.phone}
+                  badge={hospital.hasEmergency ? "طوارئ" : undefined}
+                />
               ))}
             </div>
           </div>
