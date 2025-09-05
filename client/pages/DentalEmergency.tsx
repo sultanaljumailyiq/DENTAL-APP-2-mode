@@ -6,7 +6,7 @@ export default function DentalEmergency() {
   const topics = [
     { id: "pain", title: "ألم الأسنان الحاد", path: "/emergency/pain-management", icon: Activity, color: "red" },
     { id: "broken", title: "كسر أو تصدع السن", path: "/emergency/first-aid#fractures", icon: Bandage, color: "orange" },
-    { id: "avulsed", title: "سقوط السن بالكامل", path: "/emergency/first-aid#tooth-avulsion", icon: Tooth, color: "amber" },
+    { id: "avulsed", title: "سقوط السن بالكامل", path: "/emergency/first-aid#tooth-avulsion", icon: AlertTriangle, color: "amber" },
     { id: "abscess", title: "خراج والتهاب شديد", path: "/emergency/first-aid#infection", icon: AlertTriangle, color: "rose" },
   ];
 
@@ -47,7 +47,7 @@ export default function DentalEmergency() {
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="text-lg font-bold mb-3 flex items-center gap-2"><BookOpenCheck className="w-5 h-5 text-orange-600" /> مصادر سريعة</h2>
           <div className="flex gap-2 flex-wrap">
-            <Link to="/emergency/first-aid" className="px-3 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm">دليل الإسعافات الأ��لية</Link>
+            <Link to="/emergency/first-aid" className="px-3 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm">دليل الإسعافات الأولية</Link>
             <Link to="/emergency/hospitals" className="px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm">المراكز القريبة</Link>
             <a href="tel:911" className="px-3 py-1.5 rounded-full bg-red-600 text-white text-sm flex items-center gap-1"><Phone className="w-4 h-4" /> 911</a>
           </div>
