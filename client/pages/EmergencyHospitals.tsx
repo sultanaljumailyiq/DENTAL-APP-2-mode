@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Hospital, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Hospital } from "lucide-react";
+import UnifiedPlaceCard from "@/components/UnifiedPlaceCard";
 
 const hospitals = [
   {
