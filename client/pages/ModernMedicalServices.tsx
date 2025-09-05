@@ -76,16 +76,16 @@ interface MedicalCategory {
 
 const medicalCategories: MedicalCategory[] = [
   {
-    id: "emergency",
-    title: "البحث عن العيادات القريبة و خدمة الطوارئ",
+    id: "directory",
+    title: "الدليل الطبي: العيادات والمستشفيات القريبة",
     description:
-      "اعثر ع��ى أقرب العيادات والأطباء مع خدمة طوارئ متاحة على مدار الساعة",
+      "اعثر على أقرب العيادات والمستشفيات عبر خريطة موحدة وبطاقات مصغرة موحدة",
     icon: MapPin,
-    color: "red",
-    gradient: "from-red-500 to-orange-500",
+    color: "teal",
+    gradient: "from-teal-500 to-green-500",
     mainAction: {
       title: "البحث في الخريطة",
-      path: "#emergency-map",
+      path: "#directory-map",
       icon: Map,
     },
     cards: [
@@ -94,7 +94,7 @@ const medicalCategories: MedicalCategory[] = [
         title: "الخريطة التفاعلية",
         description: "اعثر على العيادات والمستشفيات القريبة منك",
         icon: Map,
-        path: "#emergency-map",
+        path: "#directory-map",
         color: "teal",
         gradient: "from-teal-500 to-green-500",
         features: ["خريطة تفاعلية", "بحث بالموقع", "تفاصيل شاملة"],
@@ -130,6 +130,26 @@ const medicalCategories: MedicalCategory[] = [
         gradient: "from-red-600 to-orange-600",
         features: ["GPS دقيق", "معلومات التواصل", "أوقات العمل"],
       },
+    ],
+  },
+  {
+    id: "emergency",
+    title: "خدمات الطوارئ",
+    description:
+      "بطاقات صغيرة للأقسام الرئيسية: طوارئ عامة، طوارئ أسنان، الإسعافات الأولية، المراكز القريبة",
+    icon: AlertCircle,
+    color: "red",
+    gradient: "from-red-500 to-orange-500",
+    mainAction: {
+      title: "اذهب للطوارئ",
+      path: "/emergency",
+      icon: AlertCircle,
+    },
+    cards: [
+      { id: "general-emergency", title: "طوارئ عامة", description: "دليل وأرقام الطوارئ", icon: Phone, path: "/emergency", color: "red", gradient: "from-red-500 to-red-600", features: ["911", "إرشادات"] },
+      { id: "dental-emergency", title: "طوارئ أسنان", description: "خدمات طوارئ الأسنان", icon: Stethoscope, path: "/emergency", color: "orange", gradient: "from-orange-500 to-red-500", features: ["استجابة سريعة", "حجز عاجل"] },
+      { id: "first-aid", title: "الإسعافات الأولية", description: "خطوات فورية للإنقاذ", icon: BookOpenCheck, path: "/emergency/first-aid", color: "amber", gradient: "from-amber-500 to-orange-500", features: ["خطوات واضحة", "صور"] },
+      { id: "nearby-hospitals", title: "المراكز القريبة", description: "اعثر على أقرب المراكز", icon: Navigation, path: "/emergency/hospitals", color: "teal", gradient: "from-teal-500 to-green-500", features: ["خريطة", "اتصال"] },
     ],
   },
   {
@@ -184,7 +204,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "/clinic-facilities",
         color: "purple",
         gradient: "from-purple-500 to-blue-500",
-        features: ["أجهزة حديثة", "خد��ات متنوعة", "معايير الجو��ة"],
+        features: ["أجهزة حديث��", "خد��ات متنوعة", "معايير الجو��ة"],
       },
     ],
   },
@@ -224,7 +244,7 @@ const medicalCategories: MedicalCategory[] = [
       {
         id: "ai-consultation",
         title: "استشارة ذكية",
-        description: "احصل على استشارة طبية بالذكاء الاصطناعي",
+        description: "احصل على استشارة طبية با��ذكاء الاصطناعي",
         icon: MessageCircle,
         path: "/smart-chat",
         color: "indigo",
@@ -327,7 +347,7 @@ const mainFeatures = [
 ];
 
 export default function ModernMedicalServices() {
-  const [activeCategory, setActiveCategory] = useState<string>("emergency");
+  const [activeCategory, setActiveCategory] = useState<string>("directory");
   const { isOpen: isAIOpen, openAssistant, closeAssistant } = useAIAssistant();
   const location = useLocation();
   const navigate = useNavigate();
@@ -353,19 +373,9 @@ export default function ModernMedicalServices() {
       setActiveCategory(section);
 
       // Auto-scroll to map if coming from landing page clinic search
-      if (section === "clinic-search" && location.hash === "#clinic-map") {
+      if (section === "directory" && location.hash === "#directory-map") {
         setTimeout(() => {
-          document.getElementById("clinic-map")?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }, 500);
-      } else if (
-        section === "emergency" &&
-        location.hash === "#emergency-map"
-      ) {
-        setTimeout(() => {
-          document.getElementById("emergency-map")?.scrollIntoView({
+          document.getElementById("directory-map")?.scrollIntoView({
             behavior: "smooth",
             block: "center",
           });
@@ -380,9 +390,9 @@ export default function ModernMedicalServices() {
 
   const handleCardClick = (path: string) => {
     // التنقل للخرائط ضم�� نفس الصفحة
-    if (path === "#clinic-map" || path === "#emergency-map") {
+    if (path === "#clinic-map" || path === "#emergency-map" || path === "#directory-map") {
       const targetId =
-        path === "#emergency-map" ? "emergency-map" : "clinic-map";
+        path === "#directory-map" ? "directory-map" : path.substring(1);
       document.getElementById(targetId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -552,8 +562,8 @@ export default function ModernMedicalServices() {
             </div>
 
             {/* Interactive Map for Emergency and Clinic Search */}
-            {activeCategory === "emergency" && (
-              <div id="emergency-map" className="mb-8">
+            {activeCategory === "directory" && (
+              <div id="directory-map" className="mb-8">
                 {/* Enhanced Promotional Cards Above Map */}
                 <div className="flex flex-wrap justify-center md:gap-4 gap-0.5 mb-5">
                   {/* Interactive Map Card */}
@@ -825,7 +835,7 @@ export default function ModernMedicalServices() {
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold">2 دقيقة</div>
-                    <div className="text-xs text-purple-200">وقت التحليل</div>
+                    <div className="text-xs text-purple-200">وقت ال��حليل</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold">24/7</div>
