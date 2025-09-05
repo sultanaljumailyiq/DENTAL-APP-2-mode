@@ -457,9 +457,9 @@ export default function ModernMedicalServices() {
                 </Link>
                 <button
                   onClick={() => {
-                    setActiveCategory("emergency");
+                    setActiveCategory("directory");
                     setTimeout(() => {
-                      document.getElementById("emergency-map")?.scrollIntoView({
+                      document.getElementById("directory-map")?.scrollIntoView({
                         behavior: "smooth",
                         block: "center",
                       });
@@ -750,7 +750,7 @@ export default function ModernMedicalServices() {
                     </h3>
                   </div>
                   <CompactInteractiveMap
-                    title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
+                    title="الخريطة التفاعلية للعيادات والم��تشفيات القريبة"
                     description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
                   />
                 </div>
