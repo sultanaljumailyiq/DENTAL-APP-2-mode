@@ -148,7 +148,7 @@ export default function Emergency() {
         hidden={true}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-16 overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-1 overflow-x-hidden">
         {/* Back Button */}
         <div className="bg-white border-b border-red-200 py-4">
           <div className="max-w-6xl mx-auto px-4">
@@ -194,14 +194,13 @@ export default function Emergency() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 pt-[17px] pb-0">
           {/* Quick Actions */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+          <div className="flex flex-row flex-wrap justify-center items-start gap-6 mb-8">
             <button className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 rounded-2xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg">
               <Phone className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">اتصال طارئ</h3>
-              <p className="text-red-100 text-sm">0790-EMERGENCY</p>
-            </button>
+                          </button>
 
             <Link
               to="/smart-chat"
@@ -209,8 +208,7 @@ export default function Emergency() {
             >
               <MessageCircle className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">استشارة فورية</h3>
-              <p className="text-blue-100 text-sm">دردشة مع طبيب</p>
-            </Link>
+                          </Link>
 
             <Link
               to="/medical-services"
@@ -227,8 +225,7 @@ export default function Emergency() {
             >
               <Navigation className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">أقرب مستشفى</h3>
-              <p className="text-green-100 text-sm">العثور على الموقع</p>
-            </Link>
+                          </Link>
           </div>
 
           {/* Emergency Services */}
@@ -237,7 +234,7 @@ export default function Emergency() {
               <Stethoscope className="w-6 h-6 text-red-600" />
               خدمات الطوارئ المتخصصة
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-row flex-wrap justify-center items-start gap-6">
               {emergencyServices.map((service) => {
                 const Icon = service.icon;
                 return (
@@ -331,7 +328,7 @@ export default function Emergency() {
               <Hospital className="w-6 h-6 text-blue-600" />
               المستشفيات ا��قريبة
             </h2>
-            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-2">
+            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-6">
               {nearbyHospitals.map((hospital, index) => (
                 <UnifiedPlaceCard
                   key={index}
