@@ -207,7 +207,7 @@ export default function Emergency() {
               className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 rounded-2xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg block text-center"
             >
               <MessageCircle className="w-8 h-8 mb-3 mx-auto" />
-              <h3 className="font-bold text-lg mb-2">استشارة فورية</h3>
+              <h3 className="font-bold text-lg mb-2">اس��شارة فورية</h3>
                           </Link>
 
             <Link
@@ -314,7 +314,7 @@ export default function Emergency() {
 
           {/* Quick Sub-navigation */}
           <div className="mb-6 -mx-1">
-            <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory px-1">
+            <div className="flex flex-row flex-wrap justify-center items-start gap-2 overflow-x-auto snap-x snap-mandatory px-1">
               <Link to="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</Link>
               <Link to="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</Link>
               <Link to="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</Link>
