@@ -48,7 +48,7 @@ const nearbyClinicas = [
     id: 2,
     name: "��يادة الابتسامة المثالية",
     nameEn: "Perfect Smile Clinic",
-    address: "شارع المنصور، بغداد، العراق",
+    address: "شارع المنصور، بغداد، الع��اق",
     addressEn: "Al-Mansour Street, Baghdad, Iraq",
     rating: 4.9,
     reviews: 203,
@@ -330,7 +330,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل ص��يق وفي لابتسامتك مع{" "}
+                أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
@@ -417,11 +417,8 @@ export default function LandingPage() {
               <p className="text-gray-600 mb-3 text-xs leading-5">
                 اعثر على أقرب العيادات بخريطة تفاعلية وتقييمات حقيقية.
               </p>
-              <a
-                href="#clinics"
-                className="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                استكشف <ArrowRight className="w-4 h-4" />
+              <a href="#clinics" className="text-blue-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                استكشف <ArrowRight className="w-3 h-3" />
               </a>
             </div>
 
