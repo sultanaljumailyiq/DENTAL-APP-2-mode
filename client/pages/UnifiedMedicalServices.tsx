@@ -240,6 +240,7 @@ const quickStats = [
 
 export default function UnifiedMedicalServices() {
   const [activeSection, setActiveSection] = useState<string>("emergency");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const currentSection =
     medicalSections.find((section) => section.id === activeSection) ||
@@ -364,10 +365,87 @@ export default function UnifiedMedicalServices() {
                       الخريطة التفاعلية للعيادات القريبة
                     </h3>
                   </div>
+                  <div className="mb-4 -mx-1">
+                    <div className="flex flex-row flex-wrap justify-center items-start gap-2 overflow-x-auto snap-x snap-mandatory px-1">
+                      <Link to="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</Link>
+                      <Link to="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</Link>
+                      <Link to="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</Link>
+                      <Link to="/emergency/dental" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-medium hover:bg-amber-200">طوارئ الأسنان</Link>
+                    </div>
+                  </div>
                   <UnifiedInteractiveMap
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
                     description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
                   />
+                </div>
+              </div>
+            )}
+
+            {/* Special Emergency Main Cards */}
+            {activeSection === "emergency" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+                {/* Dental Emergency main card */}
+                <div onClick={() => setExpandedCard(expandedCard === "dental-emergency-main" ? null : "dental-emergency-main")} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
+                          <Heart className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-bold text-base leading-tight">طوارئ الأسنان</h3>
+                      </div>
+                      <ArrowRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">إرشادات ومراكز طوارئ الأسنان</p>
+                    {expandedCard === "dental-emergency-main" && (
+                      <div className="mb-4">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {["كسر الأسنان","خلع سن مفاجئ","التهاب شديد","نزيف اللثة","خراج"].map((t) => (
+                            <span key={t} className="px-3 py-1 rounded-full text-xs bg-red-50 text-red-700">{t}</span>
+                          ))}
+                        </div>
+                        <Link to="/emergency/dental" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+                          المزيد والتفاصيل
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    )}
+                    <Link to="/emergency/dental" className="block w-full py-2 rounded-lg font-semibold text-white transition-all text-sm shadow-md text-center bg-gradient-to-r from-red-600 to-orange-600 hover:shadow-lg">ابدأ الخدمة</Link>
+                  </div>
+                </div>
+
+                {/* Pain Management main card */}
+                <div onClick={() => setExpandedCard(expandedCard === "pain-management-main" ? null : "pain-management-main")} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
+                          <Activity className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-bold text-base leading-tight">إدارة ألم الأسنان</h3>
+                      </div>
+                      <ArrowRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">طرق سريعة لتخفيف الألم</p>
+                    {expandedCard === "pain-management-main" && (
+                      <div className="mb-4">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {["مسكنات آمنة","كمادات باردة","تنظيف لطيف","متى تراجع الطوارئ"].map((t) => (
+                            <span key={t} className="px-3 py-1 rounded-full text-xs bg-orange-50 text-orange-700">{t}</span>
+                          ))}
+                        </div>
+                        <Link to="/emergency/pain-management" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+                          المزيد والتفاصيل
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    )}
+                    <Link to="/emergency/pain-management" className="block w-full py-2 rounded-lg font-semibold text-white transition-all text-sm shadow-md text-center bg-gradient-to-r from-orange-500 to-red-500 hover:shadow-lg">ابدأ الخدمة</Link>
+                  </div>
                 </div>
               </div>
             )}
