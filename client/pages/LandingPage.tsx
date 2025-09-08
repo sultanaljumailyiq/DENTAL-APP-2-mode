@@ -332,7 +332,7 @@ export default function LandingPage() {
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية المدعومة بالذكا�� الاصطناعي
+                  الرعاية المدعومة با��ذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
@@ -353,7 +353,7 @@ export default function LandingPage() {
                   className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all flex items-center gap-2"
                 >
                   <MapPin className="w-5 h-5" />
-                  البحث ع�� عيادات
+                  البحث عن عيادات
                 </Link>
               </div>
             </div>
@@ -408,7 +408,7 @@ export default function LandingPage() {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl min-w-[180px] snap-start">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mb-3">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -515,7 +515,7 @@ export default function LandingPage() {
                       <span>{article.readTime}</span>
                     </div>
                     <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
+                      اق��أ المزيد <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
