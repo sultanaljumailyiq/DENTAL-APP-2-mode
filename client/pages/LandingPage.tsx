@@ -54,7 +54,7 @@ const nearbyClinicas = [
     reviews: 203,
     distance: "1.9 كم",
     distanceEn: "1.2 mi",
-    specialties: ["طب الأس��ا�� التجميلي", "زراعة الأسنان"],
+    specialties: ["طب الأس��ا�� التجميلي", "زرا��ة الأسنان"],
     specialtiesEn: ["Cosmetic Dentistry", "Implants"],
     phone: "+964 750 987 6543",
     image:
@@ -332,7 +332,7 @@ export default function LandingPage() {
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية المدعومة با��ذكاء الاصطناعي
+                  ا��رعاية المدعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
@@ -411,7 +411,7 @@ export default function LandingPage() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mb-3">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 البحث عن العيادات
               </h3>
               <p className="text-gray-600 mb-6">
@@ -515,7 +515,7 @@ export default function LandingPage() {
                       <span>{article.readTime}</span>
                     </div>
                     <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اق��أ المزيد <ArrowRight className="w-4 h-4" />
+                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -545,7 +545,7 @@ export default function LandingPage() {
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">2,500+</div>
-              <div className="text-blue-100">عيادة شريكة</div>
+              <div className="text-blue-100">عيادة شر��كة</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">98%</div>
