@@ -111,7 +111,7 @@ const articles = [
     authorEn: "Dr. Mohammed Ali",
     date: "12 دي��مبر 2024",
     dateEn: "Dec 12, 2024",
-    readTime: "6 دقائق قرا��ة",
+    readTime: "6 دقائق قراءة",
     readTimeEn: "6 min read",
     category: "التكنولوجيا",
     categoryEn: "Technology",
@@ -402,11 +402,8 @@ export default function LandingPage() {
               <p className="text-gray-600 mb-3 text-xs leading-5">
                 خدمة طوارئ سريعة 24/7 للحالات العاجلة واستجابة فورية.
               </p>
-              <Link
-                to="/medical-services"
-                className="text-red-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                اتصل الآن <ArrowRight className="w-4 h-4" />
+              <Link to="/emergency" className="text-red-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                فتح الطوارئ <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
@@ -459,7 +456,7 @@ export default function LandingPage() {
               اعثر على عيادة الأسنان المثالية القريبة منك
             </h2>
             <p className="text-xl text-gray-600">
-              ابحث من خ��ال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
+              ابحث من خلال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
             </p>
           </div>
 
