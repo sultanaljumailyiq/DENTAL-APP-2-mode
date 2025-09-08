@@ -54,7 +54,7 @@ const nearbyClinicas = [
     reviews: 203,
     distance: "1.9 كم",
     distanceEn: "1.2 mi",
-    specialties: ["طب الأس��ا�� التجميلي", "زرا��ة الأسنان"],
+    specialties: ["طب الأس��ا�� التجميلي", "زراعة الأسنان"],
     specialtiesEn: ["Cosmetic Dentistry", "Implants"],
     phone: "+964 750 987 6543",
     image:
@@ -330,9 +330,9 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل صديق وفي لابتسامتك مع{" "}
+                أفضل ص��يق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  ا��رعاية المدعومة بالذكاء الاصطناعي
+                  الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
@@ -414,9 +414,8 @@ export default function LandingPage() {
               <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 البحث عن العيادات
               </h3>
-              <p className="text-gray-600 mb-6">
-                اكتشف العيادات القريبة منك مع الخريطة التفاعلية
-                والتقييمات الحقيقية للمرضى.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                اعثر على أقرب العيادات بخريطة تفاعلية وتقييمات حقيقية.
               </p>
               <a
                 href="#clinics"
@@ -545,7 +544,7 @@ export default function LandingPage() {
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">2,500+</div>
-              <div className="text-blue-100">عيادة شر��كة</div>
+              <div className="text-blue-100">عيادة شريكة</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">98%</div>
