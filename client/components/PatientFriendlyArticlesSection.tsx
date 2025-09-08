@@ -21,7 +21,7 @@ interface PatientFriendlyArticlesSectionProps {
   userRole?: UserRole;
 }
 
-// بيانات المقالات التجريبية - نفس البيانات مع إخفاء معلومات الناشر للمرضى
+// بيانات المقالات التجريبية - نفس الب��انات مع إخفاء معلومات الناشر للمرضى
 const articlesData = [
   {
     id: 1,
@@ -168,16 +168,17 @@ export default function PatientFriendlyArticlesSection({
   }) => (
     <div
       className={cn(
-        "group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100",
-        featured && "ring-2 ring-purple-500/20 shadow-lg",
+        "group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100",
+        featured && "ring-2 ring-purple-500/20 shadow-md",
       )}
     >
+      <Link to={`/articles/${article.id}`} className="absolute inset-0 z-10" aria-label={article.title} />
       {/* صورة المقال */}
       <div className="relative overflow-hidden">
         <img
           src={article.image}
           alt={article.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         {featured && (
           <div className="absolute top-4 right-4">
@@ -186,27 +187,27 @@ export default function PatientFriendlyArticlesSection({
             </span>
           </div>
         )}
-        <div className="absolute top-4 left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-gray-700 text-xs px-3 py-1 rounded-full font-medium">
+        <div className="absolute top-2 left-2">
+          <span className="bg-white/90 backdrop-blur-sm text-gray-700 text-[10px] px-2 py-0.5 rounded-full font-medium">
             {article.category}
           </span>
         </div>
       </div>
 
       {/* محتوى المقال */}
-      <div className="p-6">
+      <div className="p-3">
         {/* العنوان */}
-        <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-600 transition-colors">
+        <h3 className="text-sm font-bold text-gray-900 mb-1.5 line-clamp-2 group-hover:text-purple-600 transition-colors">
           {article.title}
         </h3>
 
         {/* المقطع */}
-        <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+        <p className="text-gray-600 text-xs mb-0 line-clamp-2">
           {article.excerpt}
         </p>
 
         {/* معلومات إضافية - مخفية للمرضى */}
-        <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+        <div className="hidden">
           <div className="flex items-center gap-4">
             {/* وقت القراءة */}
             <div className="flex items-center gap-1">
@@ -233,7 +234,7 @@ export default function PatientFriendlyArticlesSection({
         </div>
 
         {/* أزرار الإجراءات */}
-        <div className="flex items-center justify-between">
+        <div className="hidden">
           <Link
             to={`/articles/${article.id}`}
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium text-sm group/link"
