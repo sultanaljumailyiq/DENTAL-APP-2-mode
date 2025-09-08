@@ -111,7 +111,7 @@ const articles = [
     authorEn: "Dr. Mohammed Ali",
     date: "12 دي��مبر 2024",
     dateEn: "Dec 12, 2024",
-    readTime: "6 دقائق قراءة",
+    readTime: "6 دقائق قرا��ة",
     readTimeEn: "6 min read",
     category: "التكنولوجيا",
     categoryEn: "Technology",
@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا���تشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -399,9 +399,8 @@ export default function LandingPage() {
               <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 طوارئ الأسنان
               </h3>
-              <p className="text-gray-600 mb-6">
-                خدمة طوارئ سريعة ومتاحة 24/7 للحالات العاجلة مع استجابة فورية
-                وفريق متخصص.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                خدمة طوارئ سريعة 24/7 للحالات العاجلة واستجابة فورية.
               </p>
               <Link
                 to="/medical-services"
@@ -460,11 +459,11 @@ export default function LandingPage() {
               اعثر على عيادة الأسنان المثالية القريبة منك
             </h2>
             <p className="text-xl text-gray-600">
-              ابحث من خلال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
+              ابحث من خ��ال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
             </p>
           </div>
 
-          {/* الخريطة التفاعلية ل��عيادات القريبة */}
+          {/* الخريطة التفاعلية للعيادات القريبة */}
           <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
