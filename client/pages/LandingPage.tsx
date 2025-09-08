@@ -155,7 +155,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
     // Simulate AI diagnosis
     setTimeout(() => {
       setDiagnosis({
-        condition: "التهاب اللثة المحتمل",
+        condition: "التهاب ��للثة المحتمل",
         confidence: 78,
         recommendations: [
           "احجز موعدا�� لتنظيف الأسنان خلال أسبوعين",
@@ -391,7 +391,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="flex flex-row gap-6 overflow-x-auto md:flex-wrap">
+          <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap snap-x snap-mandatory">
             <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl">
               <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-6 h-6 text-white" />
