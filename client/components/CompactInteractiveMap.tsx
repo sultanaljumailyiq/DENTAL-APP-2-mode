@@ -337,7 +337,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
-            placeholder="��بحث عن عيادة أو طبيب..."
+            placeholder="����حث عن عيادة أو طبيب..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pr-10 pl-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -346,11 +346,11 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
       </div>
 
       {/* Compact Clinics Grid */}
-      <div className="flex flex-row gap-3 md:gap-4 overflow-x-auto md:flex-wrap">
+      <div className="flex flex-row gap-3 md:gap-4 overflow-x-auto md:flex-wrap snap-x snap-mandatory">
         {filteredClinics.map((clinic) => (
           <div
             key={clinic.id}
-            className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
+            className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1 min-w-[220px] max-w-[220px] snap-start"
             onClick={() => navigate(`/medical-services?section=directory#directory-map`) }
           >
             {/* Compact Clinic Image */}
@@ -395,7 +395,10 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
                   {clinic.name}
                 </h3>
                 <div className="flex items-center justify-between text-xs">
-                  <p className="text-gray-600 line-clamp-1">{clinic.type}</p>
+                  <div className="flex items-center gap-1">
+                    <div className="w-4 h-4 rounded bg-gray-900" aria-hidden />
+                    <span className="sr-only">شعار</span>
+                  </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-3 h-3 text-yellow-500 fill-current" />
                     <span className="font-semibold text-gray-900">
@@ -420,24 +423,16 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
               </div>
 
               {/* Compact Actions */}
-              <div className="flex gap-1 md:gap-2">
+              <div className="flex">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleBooking(clinic);
                   }}
-                  className="flex-1 bg-gray-900 hover:bg-black text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors font-medium flex items-center justify-center gap-1 text-xs"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-1.5 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="حجز"
                 >
-                  <span>تفاصيل</span>
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(`tel:${clinic.phone}`);
-                  }}
-                  className="bg-green-600 hover:bg-green-700 text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors flex items-center justify-center"
-                >
-                  <Phone className="w-3 h-3" />
+                  <Calendar className="w-4 h-4" />
                 </button>
               </div>
             </div>
