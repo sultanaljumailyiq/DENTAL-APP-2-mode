@@ -48,7 +48,7 @@ const nearbyClinicas = [
     id: 2,
     name: "��يادة الابتسامة المثالية",
     nameEn: "Perfect Smile Clinic",
-    address: "شارع المنصور، بغداد، الع��اق",
+    address: "شارع المنصور، بغداد، العراق",
     addressEn: "Al-Mansour Street, Baghdad, Iraq",
     rating: 4.9,
     reviews: 203,
@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء ��لاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -422,7 +422,7 @@ export default function LandingPage() {
               </a>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl">
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-xl min-w-[180px] snap-start">
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-6">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
@@ -641,7 +641,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    ات��ل بنا
+                    ات���� بنا
                   </a>
                 </li>
                 <li>
