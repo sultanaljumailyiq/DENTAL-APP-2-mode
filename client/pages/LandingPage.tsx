@@ -48,7 +48,7 @@ const nearbyClinicas = [
     id: 2,
     name: "��يادة الابتسامة المثالية",
     nameEn: "Perfect Smile Clinic",
-    address: "شارع المنصور، بغداد، العراق",
+    address: "شار�� المنصور، بغداد، العراق",
     addressEn: "Al-Mansour Street, Baghdad, Iraq",
     rating: 4.9,
     reviews: 203,
@@ -85,7 +85,7 @@ const articles = [
     title: "الدليل الشامل لزراعة الأسنان: كل ما تحتاج لمعرفته",
     titleEn: "The Complete Guide to Dental Implants: What You Need to Know",
     excerpt:
-      "كل ش��ء عن زراع�� الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
+      "كل ش��ء عن زراعة الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
     excerptEn:
       "Everything about dental implants, from procedure to recovery and long-term care.",
     author: "د. سارة أحمد",
@@ -178,7 +178,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
             <Brain className="w-6 h-6 text-purple-600" />
-            التشخيص ����لذكاء الاصطنا��ي
+            التشخيص ��الذكاء الاصطنا��ي
           </h2>
           <button
             onClick={onClose}
@@ -330,7 +330,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل صديق وفي ��ابتسامتك مع{" "}
+                أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
@@ -403,7 +403,7 @@ export default function LandingPage() {
                 خدمة طوارئ سريعة 24/7 للحالات العاجلة واستجابة فورية.
               </p>
               <Link to="/emergency" className="text-red-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
-                فتح الطوار�� <ArrowRight className="w-3 h-3" />
+                فتح الطوارئ <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
@@ -432,11 +432,8 @@ export default function LandingPage() {
               <p className="text-gray-600 mb-3 text-xs leading-5">
                 مقالات طبية موثوقة ونصائح عملية مُحدثة.
               </p>
-              <Link
-                to="/medical-services"
-                className="text-green-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                اقرأ ال��قالات <ArrowRight className="w-4 h-4" />
+              <Link to="/articles" className="text-green-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                المقالات <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
@@ -455,7 +452,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* الخريطة التفاعلية للعيادات الق��يبة */}
+          {/* الخري��ة التفاعلية للعيادات القريبة */}
           <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
