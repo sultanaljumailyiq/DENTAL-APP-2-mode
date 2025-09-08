@@ -48,7 +48,7 @@ const nearbyClinicas = [
     id: 2,
     name: "��يادة الابتسامة المثالية",
     nameEn: "Perfect Smile Clinic",
-    address: "شار�� المنصور، بغداد، العراق",
+    address: "شارع المنصور، بغداد، العراق",
     addressEn: "Al-Mansour Street, Baghdad, Iraq",
     rating: 4.9,
     reviews: 203,
@@ -85,7 +85,7 @@ const articles = [
     title: "الدليل الشامل لزراعة الأسنان: كل ما تحتاج لمعرفته",
     titleEn: "The Complete Guide to Dental Implants: What You Need to Know",
     excerpt:
-      "كل ش��ء عن زراعة الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
+      "كل ش��ء عن زراعة الأ��نان، من الإجراء إلى التعافي والعناية طويلة المدى.",
     excerptEn:
       "Everything about dental implants, from procedure to recovery and long-term care.",
     author: "د. سارة أحمد",
@@ -452,7 +452,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* الخري��ة التفاعلية للعيادات القريبة */}
+          {/* الخريطة التفاعلية للعيادات القريبة */}
           <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
@@ -465,53 +465,40 @@ export default function LandingPage() {
       {/* Articles Section */}
       <section id="articles" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              معرفة الأسنان الخبيرة
+          <div className="text-center mb-6">
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
+              ابق مطلعاً على أحدث المقالات
             </h2>
-            <p className="text-xl text-gray-600">
-              ابق مطلعاً على أحدث مقالات صحة الأسنان من المتخصصين الموثوقين.
-            </p>
           </div>
 
           <div className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory">
             {articles.map((article) => (
-              <article
+              <Link
                 key={article.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[280px] sm:min-w-[320px] md:min-w-[360px] snap-start"
+                to={`/articles/${article.id}`}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[240px] sm:min-w-[280px] md:min-w-[320px] snap-start block"
               >
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
+                <div className="relative">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span className="bg-white/90 text-gray-700 px-2 py-0.5 rounded-full text-[10px] font-medium">
                       {article.category}
                     </span>
-                    <span className="text-gray-500 text-sm">
-                      {article.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="text-xs text-gray-500 flex items-center gap-2">
-                      <span>{article.date}</span>
-                      <span>•</span>
-                      <span>{article.readTime}</span>
-                    </div>
-                    <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
-                    </button>
                   </div>
                 </div>
-              </article>
+                <div className="p-3">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
 
@@ -628,7 +615,7 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">الدعم</h3>
+              <h3 className="font-semibold mb-4">��لدعم</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a href="#" className="hover:text-white">
