@@ -54,7 +54,7 @@ const nearbyClinicas = [
     reviews: 203,
     distance: "1.9 كم",
     distanceEn: "1.2 mi",
-    specialties: ["طب الأس��ا�� التجميلي", "زراعة الأسنان"],
+    specialties: ["طب الأس��ا�� التج��يلي", "زراعة الأسنان"],
     specialtiesEn: ["Cosmetic Dentistry", "Implants"],
     phone: "+964 750 987 6543",
     image:
@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء ال��صطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -387,7 +387,7 @@ export default function LandingPage() {
               رعاية الأسنان المدعومة بالذكاء الاصطناعي
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              ا��تبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
+              اختبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
             </p>
           </div>
 
@@ -426,7 +426,7 @@ export default function LandingPage() {
               <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mb-3">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 المقالات الطبية
               </h3>
               <p className="text-gray-600 mb-6">
@@ -511,7 +511,7 @@ export default function LandingPage() {
                       <span>{article.readTime}</span>
                     </div>
                     <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
+                      اقرأ ��لمزيد <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
