@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاص��ناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا���تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -387,7 +387,7 @@ export default function LandingPage() {
               رعاية الأسنان المدعومة بالذكاء الاصطناعي
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              اخت��ر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
+              اختبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
             </p>
           </div>
 
@@ -396,7 +396,7 @@ export default function LandingPage() {
               <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mb-3">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 طوارئ الأسنان
               </h3>
               <p className="text-gray-600 mb-6">
@@ -464,7 +464,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* الخريطة التفاعلية للعيادات القريبة */}
+          {/* الخريطة التفاعلية ل��عيادات القريبة */}
           <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
