@@ -303,7 +303,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاص��ناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
                   اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
@@ -332,7 +332,7 @@ export default function LandingPage() {
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية المدعومة بالذكا�� الاصطناعي
+                  الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
@@ -353,7 +353,7 @@ export default function LandingPage() {
                   className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all flex items-center gap-2"
                 >
                   <MapPin className="w-5 h-5" />
-                  البحث ع�� عيادات
+                  البحث عن عيادات
                 </Link>
               </div>
             </div>
@@ -387,13 +387,13 @@ export default function LandingPage() {
               رعاية الأسنان المدعومة بالذكاء الاصطناعي
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              اختبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
+              اخت��ر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
             </p>
           </div>
 
           <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap snap-x snap-mandatory">
             <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-xl min-w-[180px] snap-start">
-              <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mb-3">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -607,7 +607,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    مقالات الأسنا��
+                    مقالات الأسنان
                   </a>
                 </li>
               </ul>
