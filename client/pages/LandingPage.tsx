@@ -54,7 +54,7 @@ const nearbyClinicas = [
     reviews: 203,
     distance: "1.9 كم",
     distanceEn: "1.2 mi",
-    specialties: ["طب الأس��ا�� التج��يلي", "زراعة الأسنان"],
+    specialties: ["طب الأس��ا�� التجميلي", "زراعة الأسنان"],
     specialtiesEn: ["Cosmetic Dentistry", "Implants"],
     phone: "+964 750 987 6543",
     image:
@@ -85,7 +85,7 @@ const articles = [
     title: "الدليل الشامل لزراعة الأسنان: كل ما تحتاج لمعرفته",
     titleEn: "The Complete Guide to Dental Implants: What You Need to Know",
     excerpt:
-      "كل ش��ء عن زراعة الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
+      "كل ش��ء عن زراع�� الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
     excerptEn:
       "Everything about dental implants, from procedure to recovery and long-term care.",
     author: "د. سارة أحمد",
@@ -178,7 +178,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
             <Brain className="w-6 h-6 text-purple-600" />
-            التشخيص ��الذكاء الاصطنا��ي
+            التشخيص ����لذكاء الاصطنا��ي
           </h2>
           <button
             onClick={onClose}
@@ -330,7 +330,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل صديق وفي لابتسامتك مع{" "}
+                أفضل صديق وفي ��ابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
@@ -403,7 +403,7 @@ export default function LandingPage() {
                 خدمة طوارئ سريعة 24/7 للحالات العاجلة واستجابة فورية.
               </p>
               <Link to="/emergency" className="text-red-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
-                فتح الطوارئ <ArrowRight className="w-3 h-3" />
+                فتح الطوار�� <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
@@ -429,9 +429,8 @@ export default function LandingPage() {
               <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 المقالات الطبية
               </h3>
-              <p className="text-gray-600 mb-6">
-                تصفح مقالات ونصائح طبية موثوقة من أطباء الأسنان المختصين مع
-                نصائح عملية ومحتوى مُحدث.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                مقالات طبية موثوقة ونصائح عملية مُحدثة.
               </p>
               <Link
                 to="/medical-services"
@@ -456,7 +455,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* الخريطة التفاعلية للعيادات القريبة */}
+          {/* الخريطة التفاعلية للعيادات الق��يبة */}
           <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
@@ -511,7 +510,7 @@ export default function LandingPage() {
                       <span>{article.readTime}</span>
                     </div>
                     <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اقرأ ��لمزيد <ArrowRight className="w-4 h-4" />
+                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
