@@ -28,7 +28,7 @@ import {
   Award,
   Settings,
   Download,
-  Print,
+  Printer,
   Mail,
   MoreHorizontal,
 } from "lucide-react";
@@ -193,7 +193,7 @@ const ClinicOldLab: React.FC = () => {
                 تصدير
               </Button>
               <Button variant="outline">
-                <Print className="w-4 h-4 mr-2" />
+                <Printer className="w-4 h-4 mr-2" />
                 طباعة
               </Button>
               <Button>
@@ -341,7 +341,7 @@ const ClinicOldLab: React.FC = () => {
                 onChange={(e) => setSelectedLab(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
               >
-                <option value="all">جميع المختبرات</option>
+                <option value="all">جم��ع المختبرات</option>
                 {laboratories.map((lab) => (
                   <option key={lab.id} value={lab.id}>
                     {lab.name}
