@@ -26,12 +26,13 @@ import {
 import { cn } from "@/lib/utils";
 import ModernUnifiedHeader from "@/components/ModernUnifiedHeader";
 import UltraModernBottomNav from "@/components/UltraModernBottomNav";
+import UnifiedPlaceCard from "@/components/UnifiedPlaceCard";
 
 const emergencyServices = [
   {
     id: "dental-emergency",
     title: "طوارئ الأسنان",
-    description: "آلام الأسنان الحادة والطوارئ الط��ية",
+    description: "آلام الأ��نان الحادة والطوارئ الط��ية",
     icon: Heart,
     phone: "0790-123-4567",
     available: true,
@@ -147,7 +148,7 @@ export default function Emergency() {
         hidden={true}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-16">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 pt-1 overflow-x-hidden">
         {/* Back Button */}
         <div className="bg-white border-b border-red-200 py-4">
           <div className="max-w-6xl mx-auto px-4">
@@ -162,7 +163,7 @@ export default function Emergency() {
         </div>
 
         {/* Emergency Header */}
-        <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-700 text-white py-8">
+        <div className="bg-gradient-to-r from-red-600 via-orange-600 to-red-700 text-white py-6 sm:py-8">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center">
               <div className="flex justify-center mb-4">
@@ -193,28 +194,26 @@ export default function Emergency() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 pt-[17px] pb-0">
           {/* Quick Actions */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-sm:flex max-sm:flex-row">
+          <div className="flex flex-row flex-wrap justify-center items-start gap-6 mb-8">
             <button className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 rounded-2xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg">
               <Phone className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">اتصال طارئ</h3>
-              <p className="text-red-100 text-sm">0790-EMERGENCY</p>
-            </button>
+                          </button>
 
             <Link
               to="/smart-chat"
               className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 rounded-2xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg block text-center"
             >
               <MessageCircle className="w-8 h-8 mb-3 mx-auto" />
-              <h3 className="font-bold text-lg mb-2">استشارة فورية</h3>
-              <p className="text-blue-100 text-sm">دردشة مع طبيب</p>
-            </Link>
+              <h3 className="font-bold text-lg mb-2">اس��شارة فورية</h3>
+                          </Link>
 
             <Link
               to="/medical-services"
               onClick={() => {
-                // التأكد من أن القسم النشط هو الطوارئ وإمكانية التمرير للخريطة
+                // التأكد من أن القسم النشط هو الط��ارئ وإمكانية التمرير للخريطة
                 setTimeout(() => {
                   const mapElement = document.getElementById("medical-map");
                   if (mapElement) {
@@ -226,8 +225,7 @@ export default function Emergency() {
             >
               <Navigation className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-bold text-lg mb-2">أقرب مستشفى</h3>
-              <p className="text-green-100 text-sm">العثور على الموقع</p>
-            </Link>
+                          </Link>
           </div>
 
           {/* Emergency Services */}
@@ -236,7 +234,7 @@ export default function Emergency() {
               <Stethoscope className="w-6 h-6 text-red-600" />
               خدمات الطوارئ المتخصصة
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-row flex-wrap justify-center items-start gap-6">
               {emergencyServices.map((service) => {
                 const Icon = service.icon;
                 return (
@@ -314,47 +312,32 @@ export default function Emergency() {
             </div>
           </div>
 
+          {/* Quick Sub-navigation */}
+          <div className="mb-6 -mx-1">
+            <div className="flex flex-row flex-wrap justify-center items-start gap-2 overflow-x-auto snap-x snap-mandatory px-1">
+              <Link to="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</Link>
+              <Link to="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</Link>
+              <Link to="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</Link>
+              <Link to="/emergency/dental" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-medium hover:bg-amber-200">طوارئ الأسنان</Link>
+            </div>
+          </div>
+
           {/* Nearby Hospitals */}
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
               <Hospital className="w-6 h-6 text-blue-600" />
               المستشفيات ا��قريبة
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-row gap-4 overflow-x-auto md:grid md:grid-cols-3 md:gap-6 snap-x snap-mandatory -mx-4 px-4 pb-6">
               {nearbyHospitals.map((hospital, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-lg text-gray-900 mb-1">
-                        {hospital.name}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{hospital.distance}</span>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">
-                        {hospital.address}
-                      </p>
-                    </div>
-                    {hospital.hasEmergency && (
-                      <div className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                        طوارئ
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <a
-                      href={`tel:${hospital.phone}`}
-                      className="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center"
-                    >
-                      اتصال
-                    </a>
-                    <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors">
-                      الاتجاهات
-                    </button>
-                  </div>
-                </div>
+                <UnifiedPlaceCard
+                  key={index}
+                  name={hospital.name}
+                  distance={hospital.distance}
+                  address={hospital.address}
+                  phone={hospital.phone}
+                  badge={hospital.hasEmergency ? "طوارئ" : undefined}
+                />
               ))}
             </div>
           </div>
@@ -370,7 +353,7 @@ export default function Emergency() {
                 <h3 className="font-bold mb-3">في حالة ألم الأسنان الحاد:</h3>
                 <ul className="space-y-2 text-blue-100">
                   <li>• اشطف فمك بالماء الدافئ</li>
-                  <li>• استخدم خيط الأس��ان لإزالة أي طعام</li>
+                  <li>• استخدم خيط الأس��ان لإزال�� أي طعام</li>
                   <li>• خذ مسكن للألم حسب التوجيهات</li>
                   <li>• تجنب وضع الأسبرين على اللثة</li>
                 </ul>
@@ -401,7 +384,7 @@ export default function Emergency() {
                 تعلم كيفية التعامل مع الحالات الطارئة الشائعة قبل وصول الإسعاف
               </p>
 
-              <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 {firstAidScenarios.map((scenario) => (
                   <div
                     key={scenario.id}

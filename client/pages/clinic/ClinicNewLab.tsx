@@ -31,6 +31,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ClinicSubNav from "@/components/ClinicSubNav";
 import {
   sharedClinicData,
   Laboratory,
@@ -206,7 +207,7 @@ const ClinicNewLab: React.FC = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  إدارة المختبر
+                  إدارة المخت��ر
                 </h1>
                 <p className="text-sm text-gray-600">
                   {filteredOrders.length} طلب
@@ -223,6 +224,7 @@ const ClinicNewLab: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <ClinicSubNav />
         {/* Search and Filters */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
@@ -473,7 +475,7 @@ const ClinicNewLab: React.FC = () => {
                         )}
                         {order.specifications.specialInstructions && (
                           <div className="md:col-span-2">
-                            تعليمات خاصة:{" "}
+                            تعل��مات خاصة:{" "}
                             {order.specifications.specialInstructions}
                           </div>
                         )}

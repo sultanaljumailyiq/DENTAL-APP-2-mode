@@ -41,7 +41,6 @@ import {
 } from "@/components/MobileOptimizedHeader";
 import MobileDentalWidgets from "@/components/MobileDentalWidgets";
 import ComprehensiveNotificationCenter from "@/components/ComprehensiveNotificationCenter";
-import SimplifiedBottomNav from "@/components/SimplifiedBottomNav";
 import CompactAIAssistant, {
   FloatingAIButton,
   useAIAssistant,
@@ -77,16 +76,16 @@ interface MedicalCategory {
 
 const medicalCategories: MedicalCategory[] = [
   {
-    id: "emergency",
-    title: "البحث عن العيادات القريبة و خدمة الطوارئ",
+    id: "directory",
+    title: "الدليل الطبي: العيادات والمستشفيات القريبة",
     description:
-      "اعثر ع��ى أقرب العيادات والأطباء مع خدمة طوارئ متاحة على مدار الساعة",
+      "اعثر على أقرب العيادات والمستشفيات عبر خريطة موحدة وبطاقات مصغرة موحدة",
     icon: MapPin,
-    color: "red",
-    gradient: "from-red-500 to-orange-500",
+    color: "teal",
+    gradient: "from-teal-500 to-green-500",
     mainAction: {
       title: "البحث في الخريطة",
-      path: "#emergency-map",
+      path: "#directory-map",
       icon: Map,
     },
     cards: [
@@ -95,7 +94,7 @@ const medicalCategories: MedicalCategory[] = [
         title: "الخريطة التفاعلية",
         description: "اعثر على العيادات والمستشفيات القريبة منك",
         icon: Map,
-        path: "#emergency-map",
+        path: "#directory-map",
         color: "teal",
         gradient: "from-teal-500 to-green-500",
         features: ["خريطة تفاعلية", "بحث بالموقع", "تفاصيل شاملة"],
@@ -119,7 +118,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "/articles/#first-aid",
         color: "orange",
         gradient: "from-orange-500 to-red-500",
-        features: ["خطوات واضحة", "صور توضيحية", "سهل التطبيق"],
+        features: ["خطوات واضحة", "صور توضيحي��", "سهل التطبيق"],
       },
       {
         id: "emergency-locations",
@@ -134,8 +133,28 @@ const medicalCategories: MedicalCategory[] = [
     ],
   },
   {
+    id: "emergency",
+    title: "خدمات الطوارئ",
+    description:
+      "بطاقات صغيرة للأقسام الرئيسية: طوارئ عامة، طوارئ أسنان، الإسعافات الأولية، المراكز القريبة",
+    icon: AlertCircle,
+    color: "red",
+    gradient: "from-red-500 to-orange-500",
+    mainAction: {
+      title: "اذهب للطوارئ",
+      path: "/emergency",
+      icon: AlertCircle,
+    },
+    cards: [
+      { id: "general-emergency", title: "طوارئ عامة", description: "دليل وأرقام الطوارئ", icon: Phone, path: "/emergency", color: "red", gradient: "from-red-500 to-red-600", features: ["911", "إرشادات"] },
+      { id: "dental-emergency", title: "طوارئ أسنان", description: "خدمات طوارئ الأسنان", icon: Stethoscope, path: "/emergency", color: "orange", gradient: "from-orange-500 to-red-500", features: ["استجابة سريعة", "حجز عاجل"] },
+      { id: "first-aid", title: "الإسعافات الأولية", description: "خطوات فورية للإنقاذ", icon: BookOpenCheck, path: "/emergency/first-aid", color: "amber", gradient: "from-amber-500 to-orange-500", features: ["خطوات واضحة", "صور"] },
+      { id: "nearby-hospitals", title: "المراكز القريبة", description: "اعثر على أقرب المراكز", icon: Navigation, path: "/emergency/hospitals", color: "teal", gradient: "from-teal-500 to-green-500", features: ["خريطة", "اتصال"] },
+    ],
+  },
+  {
     id: "removed-section",
-    title: "البحث عن العيادات ال��ريبة",
+    title: "البحث عن العيادات ال����يبة",
     description:
       "اعثر ع��ى أفضل العيادات والأطباء في منطقتك بالخريطة التفاعلية",
     icon: MapPin,
@@ -155,7 +174,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "#clinic-map",
         color: "teal",
         gradient: "from-teal-500 to-green-500",
-        features: ["خريطة تفاعلية", "بحث بالمو��ع", "تفاصيل شاملة"],
+        features: ["خري��ة تفاعلية", "بحث بالمو��ع", "تفاصيل شاملة"],
       },
       {
         id: "clinic-reviews",
@@ -169,7 +188,7 @@ const medicalCategories: MedicalCategory[] = [
       },
       {
         id: "doctor-profiles",
-        title: "ملفات الأطباء",
+        title: "��لفات الأطباء",
         description: "تعرف عل�� تخصصات وخبرات الأطباء",
         icon: Users,
         path: "/doctor-profiles",
@@ -185,7 +204,7 @@ const medicalCategories: MedicalCategory[] = [
         path: "/clinic-facilities",
         color: "purple",
         gradient: "from-purple-500 to-blue-500",
-        features: ["أجهزة حديثة", "خدمات متنوعة", "معايير الجو��ة"],
+        features: ["أجهزة حديث��", "خد��ات متنوعة", "معايير الجو��ة"],
       },
     ],
   },
@@ -204,7 +223,7 @@ const medicalCategories: MedicalCategory[] = [
     cards: [
       {
         id: "symptoms-checker",
-        title: "فحص الأعراض",
+        title: "فحص ��لأعراض",
         description: "ادخل أعراضك واحصل على ��شخيص أولي",
         icon: Activity,
         path: "/ai-diagnosis",
@@ -225,7 +244,7 @@ const medicalCategories: MedicalCategory[] = [
       {
         id: "ai-consultation",
         title: "استشارة ذكية",
-        description: "احصل على استشارة طبية بالذكاء الاصطناعي",
+        description: "احصل على استشارة طبية با��ذكاء الاصطناعي",
         icon: MessageCircle,
         path: "/smart-chat",
         color: "indigo",
@@ -269,7 +288,7 @@ const medicalCategories: MedicalCategory[] = [
       },
       {
         id: "disease-info",
-        title: "معلومات الأمراض",
+        title: "معلومات الأم��اض",
         description: "دليل شامل عن الأمراض وطرق الوقاية",
         icon: Info,
         path: "/articles/",
@@ -297,7 +316,7 @@ const mainFeatures = [
   },
   {
     title: "تشخيص بالذكاء الاصطناعي",
-    description: "احصل على تشخيص أولي دقيق في دقائق",
+    description: "احصل على تشخي�� أولي دقيق في دقائق",
     icon: Brain,
     color: "purple",
   },
@@ -328,7 +347,7 @@ const mainFeatures = [
 ];
 
 export default function ModernMedicalServices() {
-  const [activeCategory, setActiveCategory] = useState<string>("emergency");
+  const [activeCategory, setActiveCategory] = useState<string>("directory");
   const { isOpen: isAIOpen, openAssistant, closeAssistant } = useAIAssistant();
   const location = useLocation();
   const navigate = useNavigate();
@@ -354,19 +373,9 @@ export default function ModernMedicalServices() {
       setActiveCategory(section);
 
       // Auto-scroll to map if coming from landing page clinic search
-      if (section === "clinic-search" && location.hash === "#clinic-map") {
+      if (section === "directory" && location.hash === "#directory-map") {
         setTimeout(() => {
-          document.getElementById("clinic-map")?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }, 500);
-      } else if (
-        section === "emergency" &&
-        location.hash === "#emergency-map"
-      ) {
-        setTimeout(() => {
-          document.getElementById("emergency-map")?.scrollIntoView({
+          document.getElementById("directory-map")?.scrollIntoView({
             behavior: "smooth",
             block: "center",
           });
@@ -380,10 +389,10 @@ export default function ModernMedicalServices() {
     medicalCategories[0];
 
   const handleCardClick = (path: string) => {
-    // التنقل للخرائط ضم�� نفس الصفحة
-    if (path === "#clinic-map" || path === "#emergency-map") {
+    // التنقل للخرائط ضم�� ن��س الصفحة
+    if (path === "#clinic-map" || path === "#emergency-map" || path === "#directory-map") {
       const targetId =
-        path === "#emergency-map" ? "emergency-map" : "clinic-map";
+        path === "#directory-map" ? "directory-map" : path.substring(1);
       document.getElementById(targetId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -397,7 +406,7 @@ export default function ModernMedicalServices() {
     else if (path.startsWith("http")) {
       window.open(path, "_blank", "noopener,noreferrer");
     }
-    // التنقل للصفحات داخل التطب��ق
+    // التنق�� للصفحات داخل التطب��ق
     else if (path.startsWith("/")) {
       navigate(path);
     }
@@ -426,19 +435,19 @@ export default function ModernMedicalServices() {
     <div className="min-h-screen bg-gray-50">
       <div className="pb-20">
         {/* Enhanced Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-12">
+        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white pt-3.5 pb-1">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-8">
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
                 منصتك الطبية الشاملة
               </h1>
-              <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-6">
-                احصل على أفضل الخدمات الطبية من التشخيص الذكي ��لى البحث عن
+              <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-3">
+                احصل على أفضل الخدم��ت الطبية من التشخيص الذكي ��لى البحث عن
                 العيادات القريبة
               </p>
 
               {/* Quick Access Buttons */}
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="flex flex-wrap justify-center md:gap-4 gap-0.5 mb-5">
                 <Link
                   to="/ai-diagnosis"
                   className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2"
@@ -448,9 +457,9 @@ export default function ModernMedicalServices() {
                 </Link>
                 <button
                   onClick={() => {
-                    setActiveCategory("emergency");
+                    setActiveCategory("directory");
                     setTimeout(() => {
-                      document.getElementById("emergency-map")?.scrollIntoView({
+                      document.getElementById("directory-map")?.scrollIntoView({
                         behavior: "smooth",
                         block: "center",
                       });
@@ -470,21 +479,6 @@ export default function ModernMedicalServices() {
                 </Link>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                {quickStats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4"
-                  >
-                    <div className="flex items-center justify-center mb-2">
-                      <stat.icon className="w-6 h-6" />
-                    </div>
-                    <div className="text-xl font-bold mb-1">{stat.value}</div>
-                    <div className="text-blue-100 text-sm">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -492,7 +486,7 @@ export default function ModernMedicalServices() {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Horizontal Category Navigation */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8 overflow-hidden">
-            <div className="grid grid-cols-3 gap-0">
+            <div className="flex flex-wrap justify-center gap-0">
               {medicalCategories
                 .filter((cat) => cat.id !== "removed-section")
                 .map((category) => {
@@ -553,10 +547,10 @@ export default function ModernMedicalServices() {
             </div>
 
             {/* Interactive Map for Emergency and Clinic Search */}
-            {activeCategory === "emergency" && (
-              <div id="emergency-map" className="mb-8">
+            {activeCategory === "directory" && (
+              <div id="directory-map" className="mb-8">
                 {/* Enhanced Promotional Cards Above Map */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="flex flex-wrap justify-center md:gap-4 gap-0.5 mb-5">
                   {/* Interactive Map Card */}
                   <div
                     onClick={() => handleCardClick("#emergency-map")}
@@ -723,8 +717,10 @@ export default function ModernMedicalServices() {
                   </div>
                   <CompactInteractiveMap
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
-                    description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    description="اعثر على أقرب العيادات والمستشفيات واحجز مو��دك بسهولة"
                     maxResults={12}
+                    initialFilter="all"
+                    showFilters={true}
                   />
                 </div>
               </div>
@@ -740,17 +736,19 @@ export default function ModernMedicalServices() {
                       الخريطة التفاعلية للعيادات القريبة
                     </h3>
                   </div>
-                  <SimpleInteractiveMap
+                  <CompactInteractiveMap
                     title="الخريطة التفاعلية للعيادات والمستشفيات القريبة"
-                    description="اعثر ��لى أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    description="اعثر على أقرب العيادات والمستشفيات واحجز موعدك بسهولة"
+                    initialFilter="all"
+                    showFilters={true}
                   />
                 </div>
               </div>
             )}
 
             {/* Service Cards Section - Only show for non-emergency categories */}
-            {activeCategory !== "emergency" && (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+            {activeCategory !== "directory" && (
+              <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap justify-center mb-8">
                 {currentCategory.cards.map((card) => (
                   <div
                     key={card.id}
@@ -826,7 +824,7 @@ export default function ModernMedicalServices() {
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold">2 دقيقة</div>
-                    <div className="text-xs text-purple-200">وقت التحليل</div>
+                    <div className="text-xs text-purple-200">وقت ال��حليل</div>
                   </div>
                   <div className="text-center">
                     <div className="text-xl font-bold">24/7</div>
@@ -837,7 +835,7 @@ export default function ModernMedicalServices() {
             )}
 
             {activeCategory === "education" && (
-              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-6 text-white text-center mb-8">
+              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl md:p-6 p-2 text-white text-center md:mb-8 mb-1">
                 <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-90" />
                 <h3 className="text-xl font-bold mb-3">مكتبة طبية ��املة</h3>
                 <p className="mb-4 text-emerald-100 max-w-2xl mx-auto text-sm">
@@ -875,7 +873,7 @@ export default function ModernMedicalServices() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="flex flex-wrap justify-center md:gap-4 gap-1">
               {mainFeatures.map((feature, index) => (
                 <div
                   key={index}
@@ -928,10 +926,6 @@ export default function ModernMedicalServices() {
         </div>
       </div>
 
-      <SimplifiedBottomNav
-        currentSection="medical-services"
-        userRole="patient"
-      />
 
       {/* AI Assistant */}
       <FloatingAIButton onClick={openAssistant} />

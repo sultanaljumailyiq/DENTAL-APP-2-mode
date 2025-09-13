@@ -55,6 +55,7 @@ interface NavItem {
 export default function UltraModernBottomNav() {
   const location = useLocation();
   const navigate = useNavigate();
+  const isCompact = location.pathname.startsWith("/emergency");
   const { isFeatureEnabled } = useSystemSettings();
   const { favoritesCount } = useFavorites();
   const [activeSection, setActiveSection] = useState<SectionType>("home");
@@ -241,8 +242,8 @@ export default function UltraModernBottomNav() {
             className={cn("relative bg-white", glowEffect && "animate-pulse")}
           >
             {/* المحتوى الرئيسي */}
-            <div className="relative z-10 px-2 py-3">
-              <div className="flex items-center justify-around gap-1">
+            <div className={cn("relative z-10 px-2", isCompact ? "py-2" : "py-3")}>
+              <div className={cn("flex items-center justify-around", isCompact ? "gap-0" : "gap-1")}>
                 {displayItems.map((item, index) => {
                   const isActive = activeSection === item.id;
                   let hasNotification =
@@ -273,6 +274,7 @@ export default function UltraModernBottomNav() {
                             notifications[item.id as keyof typeof notifications]
                           }
                           favoritesCount={favoritesCount}
+                          isCompact={isCompact}
                         />
                       </Link>
                     </div>
@@ -296,6 +298,7 @@ interface NavButtonProps {
   index: number;
   notificationCount?: number;
   favoritesCount?: number;
+  isCompact?: boolean;
 }
 
 const NavButton: React.FC<NavButtonProps> = ({
@@ -306,21 +309,23 @@ const NavButton: React.FC<NavButtonProps> = ({
   index,
   notificationCount = 0,
   favoritesCount = 0,
+  isCompact = false,
 }) => {
   return (
     <>
       {/* الأيقونة */}
       <div
         className={cn(
-          "relative transition-all duration-200 w-9 h-9 rounded-lg",
+          "relative transition-all duration-200 rounded-lg flex items-center justify-center",
+          isCompact ? "w-8 h-8" : "w-9 h-9",
           isActive ? `bg-gradient-to-r ${item.gradient}` : "hover:bg-gray-100",
-          "flex items-center justify-center",
         )}
       >
         {/* الأيقونة */}
         <item.icon
           className={cn(
-            "transition-all duration-200 w-4 h-4",
+            "transition-all duration-200",
+            isCompact ? "w-3 h-3" : "w-4 h-4",
             isActive ? "text-white" : "text-gray-600",
           )}
         />
@@ -344,7 +349,8 @@ const NavButton: React.FC<NavButtonProps> = ({
       {/* النص */}
       <span
         className={cn(
-          "text-xs font-medium mt-1 transition-colors duration-200 text-center max-w-[60px] truncate",
+          "font-medium mt-1 transition-colors duration-200 text-center max-w-[60px] truncate",
+          isCompact ? "text-[10px]" : "text-xs",
           isActive ? "text-blue-600 font-semibold" : "text-gray-600",
         )}
       >

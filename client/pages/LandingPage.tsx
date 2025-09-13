@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
-import SimpleInteractiveMap from "@/components/SimpleInteractiveMap";
+import CompactInteractiveMap from "@/components/CompactInteractiveMap";
 
 // Mock data for clinics in Iraq
 const nearbyClinicas = [
@@ -85,12 +85,12 @@ const articles = [
     title: "الدليل الشامل لزراعة الأسنان: كل ما تحتاج لمعرفته",
     titleEn: "The Complete Guide to Dental Implants: What You Need to Know",
     excerpt:
-      "كل ش��ء عن زراعة الأسنان، من الإجراء إلى التعافي والعناية طويلة المدى.",
+      "كل ش��ء عن زراعة الأ��نان، من الإجراء إلى التعافي والعناية طويلة المدى.",
     excerptEn:
       "Everything about dental implants, from procedure to recovery and long-term care.",
     author: "د. سارة أحمد",
     authorEn: "Dr. Sarah Ahmed",
-    date: "15 ديسمبر 2024",
+    date: "15 د��سمبر 2024",
     dateEn: "Dec 15, 2024",
     readTime: "8 دقائق قراءة",
     readTimeEn: "8 min read",
@@ -253,7 +253,7 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div>
                 <h4 className="font-semibold text-gray-900 mb-3">
-                  الإجراءات الموصى بها:
+                  الإجر��ءات الموصى بها:
                 </h4>
                 <ul className="space-y-2">
                   {diagnosis.recommendations.map(
@@ -303,9 +303,9 @@ function AISymptomChecker({ isOpen, onClose }: AISymptomCheckerProps) {
 
               <div className="bg-yellow-50 p-4 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>إخلاء مسؤو��ية:</strong> هذا التشخيص بالذكاء الاصطناعي
+                  <strong>إخلاء مسؤو��ية:</strong> هذ�� ا��تشخيص بالذكاء الاصطناعي
                   أولي ولا ينبغي أن يحل محل الاستشارة الطبية المهنية. يرجى
-                  اس��شارة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
+                  اس��ش��رة ��بيب أسنان مؤهل للفحص والعلاج ال��ناسبين.
                 </p>
               </div>
             </div>
@@ -330,13 +330,13 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                أفضل صدي��� لابتسامتك مع{" "}
+                أفضل صديق وفي لابتسامتك مع{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  الرعاية ال��دعومة بالذكاء الاصطناعي
+                  الرعاية المدعومة بالذكاء الاصطناعي
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                احصل على تشخيص أسنان فور�� بالذكاء الاصطناعي، ابحث عن أفضل
+                احصل على تشخيص ��سنان فوري بالذكاء الاصطناعي، ابحث عن أفضل
                 العيادات بالقرب منك، واحجز المواعيد أونلاين. انضم للآلاف الذين
                 يثقون بزيندنتا لصحة أفواههم.
               </p>
@@ -353,7 +353,7 @@ export default function LandingPage() {
                   className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all flex items-center gap-2"
                 >
                   <MapPin className="w-5 h-5" />
-                  البحث ع�� ��يادات
+                  البحث عن عيادات
                 </Link>
               </div>
             </div>
@@ -384,69 +384,56 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              رعاية ا��أسنان المدعومة بالذكاء الاصطناعي
+              رعاية الأسنان المدعومة بالذكاء الاصطناعي
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              اختبر مستقبل طب الأسنان مع أدوات ��لتشخيص المتقدمة بالذكاء
-              الاصطناعي وتوصيات العلاج ال��خصصة.
+              اختبر مستقبل طب الأسنان مع أدوات التشخيص المتقدمة بالذكاء الاصطناعي وتوصيات العلاج المتخصصة.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mb-6">
+          <div className="flex flex-row gap-3 overflow-x-auto md:flex-wrap snap-x snap-mandatory">
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-xl min-w-[180px] snap-start">
+              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mb-3">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 طوارئ الأسنان
               </h3>
-              <p className="text-gray-600 mb-6">
-                خدمة طوارئ سريعة ومتاحة 24/7 للحالات العاجلة مع استجابة فورية
-                وفريق متخصص.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                خدمة طوارئ سريعة 24/7 للحالات العاجلة واستجابة فورية.
               </p>
-              <Link
-                to="/medical-services"
-                className="text-red-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                اتصل الآن <ArrowRight className="w-4 h-4" />
+              <Link to="/emergency" className="text-red-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                فتح الطوارئ <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl min-w-[180px] snap-start">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mb-3">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 البحث عن العيادات
               </h3>
-              <p className="text-gray-600 mb-6">
-                اكتشف العياد��ت والمختبرات القريبة منك مع الخريطة التفاعلية
-                والتقييمات الحقيقية للمرضى.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                اعثر على أقرب العيادات بخريطة تفاعلية وتقييمات حقيقية.
               </p>
-              <a
-                href="#clinics"
-                className="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                ��ستكشف <ArrowRight className="w-4 h-4" />
+              <a href="#clinics" className="text-blue-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                استكشف <ArrowRight className="w-3 h-3" />
               </a>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl">
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-xl min-w-[180px] snap-start">
+              <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mb-3">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">
                 المقالات الطبية
               </h3>
-              <p className="text-gray-600 mb-6">
-                تصفح مقالات ونصائح طبية موثوقة من أطباء الأسنان المختصين مع
-                نصائح عملية ومحتوى مُحدث.
+              <p className="text-gray-600 mb-3 text-xs leading-5">
+                مقالات طبية موثوقة ونصائح عملية مُحدثة.
               </p>
-              <Link
-                to="/medical-services"
-                className="text-green-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-              >
-                اقرأ ال��قالات <ArrowRight className="w-4 h-4" />
+              <Link to="/articles" className="text-green-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all text-xs">
+                المقالات <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
@@ -458,16 +445,15 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              اعثر على عيادة الأسنان المثالية بالقرب منك
+              اعثر على عيادة الأسنان المثالية القريبة منك
             </h2>
             <p className="text-xl text-gray-600">
-              ابحث من خلال آلاف ��يادات الأسنان المعتمدة مع تقييمات وتقيمات
-              حقيقية.
+              ابحث من خلال آلاف عيادات الأسنان المعتمدة مع تقييمات حقيقية.
             </p>
           </div>
 
           {/* الخريطة التفاعلية للعيادات القريبة */}
-          <SimpleInteractiveMap
+          <CompactInteractiveMap
             showOnHomePage={true}
             maxResults={5}
             title="اعثر على عيادات الأسنان القريبة منك"
@@ -479,59 +465,40 @@ export default function LandingPage() {
       {/* Articles Section */}
       <section id="articles" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              معرفة الأسنان الخبيرة
+          <div className="text-center mb-6">
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
+              ابق مطلعاً على أحدث المقالات
             </h2>
-            <p className="text-xl text-gray-600">
-              ابق مطلعاً على أحدث مقالات صحة الأسنان من المتخصصين الموثوقين.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory">
             {articles.map((article) => (
-              <article
+              <Link
                 key={article.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                to={`/articles/${article.id}`}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow min-w-[240px] sm:min-w-[280px] md:min-w-[320px] snap-start block"
               >
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
+                <div className="relative">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span className="bg-white/90 text-gray-700 px-2 py-0.5 rounded-full text-[10px] font-medium">
                       {article.category}
                     </span>
-                    <span className="text-gray-500 text-sm">
-                      {article.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
-                          {article.author}
-                        </p>
-                        <p className="text-xs text-gray-500">{article.date}</p>
-                      </div>
-                    </div>
-                    <button className="text-blue-600 font-medium hover:text-blue-700 flex items-center gap-1">
-                      اقرأ المزيد <ArrowRight className="w-4 h-4" />
-                    </button>
                   </div>
                 </div>
-              </article>
+                <div className="p-3">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
 
@@ -557,11 +524,11 @@ export default function LandingPage() {
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">2,500+</div>
-              <div className="text-blue-100">عي��دة شريكة</div>
+              <div className="text-blue-100">عيادة شريكة</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">98%</div>
-              <div className="text-blue-100">دقة ��لذكاء الاصطناعي</div>
+              <div className="text-blue-100">دقة الذكاء الاصطناعي</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold mb-2">24/7</div>
@@ -583,7 +550,7 @@ export default function LandingPage() {
                 <span className="text-xl font-bold">زيندنتا</span>
               </div>
               <p className="text-gray-400 mb-4">
-                مستقبل رعاية الأسنان، مدعوم بالذكاء الاصطناع�� ومدفوع بالرحمة.
+                مستقبل رعاية الأسنان، مدعوم بالذكاء الاصطناعي ومدفوع بالرحمة.
               </p>
               <div className="flex gap-4">
                 <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700">
@@ -615,7 +582,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    مقالات ا��أسنان
+                    مقالات الأسنان
                   </a>
                 </li>
               </ul>
@@ -648,16 +615,16 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">الدعم</h3>
+              <h3 className="font-semibold mb-4">��لدعم</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a href="#" className="hover:text-white">
-                    مركز المساع��ة
+                    مركز المساعدة
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    اتصل بنا
+                    ات��ل بنا
                   </a>
                 </li>
                 <li>

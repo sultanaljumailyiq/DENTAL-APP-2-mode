@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Users,
@@ -27,6 +27,8 @@ import {
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ClinicSubNav from "@/components/ClinicSubNav";
+import { sharedClinicData, Patient } from "@/services/sharedClinicData";
 
 // Mock patients data - shared with clinic_old system
 const mockPatients = [
@@ -98,7 +100,7 @@ const mockPatients = [
     priority: "normal",
     totalVisits: 6,
     totalSpent: 950000,
-    notes: "تقويم أسنان، المرحلة الثانية",
+    notes: "تقويم أسنان، ا��مرح��ة الثانية",
     medicalHistory: ["تقويم أسنان"],
     avatar: null,
   },
@@ -128,9 +130,21 @@ const ClinicNewPatients: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState("all");
   const [selectedPatient, setSelectedPatient] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [patients, setPatients] = useState<Patient[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await sharedClinicData.getPatients();
+        setPatients(data);
+      } catch (e) {
+        console.error("Failed to load patients", e);
+      }
+    })();
+  }, []);
 
   // Filter patients based on search and status
-  const filteredPatients = mockPatients.filter((patient) => {
+  const filteredPatients = patients.filter((patient) => {
     const matchesSearch =
       patient.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       patient.phone.includes(searchQuery) ||
@@ -203,7 +217,7 @@ const ClinicNewPatients: React.FC = () => {
                   إدارة المرضى
                 </h1>
                 <p className="text-sm text-gray-600">
-                  {filteredPatients.length} مريض
+                  {filteredPatients.length.toLocaleString()} مريض
                 </p>
               </div>
             </div>
@@ -217,6 +231,7 @@ const ClinicNewPatients: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <ClinicSubNav />
         {/* Search and Filters */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
@@ -236,7 +251,7 @@ const ClinicNewPatients: React.FC = () => {
               onChange={(e) => setFilterStatus(e.target.value)}
               className="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="all">جميع الحالات</option>
+              <option value="all">جميع ا��حالات</option>
               <option value="active">نشط</option>
               <option value="in_treatment">قيد العلاج</option>
               <option value="completed">مكتمل</option>
@@ -254,7 +269,7 @@ const ClinicNewPatients: React.FC = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-gray-900">
-                  {mockPatients.length}
+                  {patients.length}
                 </p>
                 <p className="text-sm text-gray-600">إجمالي المرضى</p>
               </div>
@@ -268,7 +283,7 @@ const ClinicNewPatients: React.FC = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-gray-900">
-                  {mockPatients.filter((p) => p.status === "active").length}
+                  {patients.filter((p) => p.status === "active").length}
                 </p>
                 <p className="text-sm text-gray-600">مرضى نشطون</p>
               </div>
@@ -282,7 +297,7 @@ const ClinicNewPatients: React.FC = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-gray-900">
-                  {mockPatients.filter((p) => p.status === "urgent").length}
+                  {patients.filter((p) => p.status === "urgent").length}
                 </p>
                 <p className="text-sm text-gray-600">حالات عاجلة</p>
               </div>
@@ -296,7 +311,7 @@ const ClinicNewPatients: React.FC = () => {
               </div>
               <div>
                 <p className="text-2xl font-bold text-gray-900">
-                  {mockPatients.filter((p) => p.nextAppointment).length}
+                  {patients.filter((p) => p.nextAppointment).length}
                 </p>
                 <p className="text-sm text-gray-600">مواعيد قادمة</p>
               </div>
@@ -304,8 +319,8 @@ const ClinicNewPatients: React.FC = () => {
           </div>
         </div>
 
-        {/* Patients Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Patients Grid - compact mobile cards */}
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3">
           {filteredPatients.map((patient) => (
             <div
               key={patient.id}
@@ -315,14 +330,14 @@ const ClinicNewPatients: React.FC = () => {
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                       <User className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">
                         {patient.name}
                       </h3>
-                      <p className="text-sm text-gray-600">{patient.age} سنة</p>
+                      <p className="text-xs text-gray-600">{patient.age} سنة</p>
                     </div>
                   </div>
 
@@ -336,29 +351,29 @@ const ClinicNewPatients: React.FC = () => {
               </div>
 
               {/* Patient Info */}
-              <div className="p-4 space-y-3">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="p-3 space-y-2">
+                <div className="flex items-center gap-1.5 text-xs text-gray-600">
                   <Phone className="w-4 h-4" />
                   {patient.phone}
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-1.5 text-xs text-gray-600">
                   <MapPin className="w-4 h-4" />
                   {patient.address}
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-1.5 text-xs text-gray-600">
                   <Heart className="w-4 h-4" />
                   {patient.treatment}
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-1.5 text-xs text-gray-600">
                   <Clock className="w-4 h-4" />
                   آخر زيارة: {patient.lastVisit}
                 </div>
 
                 {patient.nextAppointment && (
-                  <div className="flex items-center gap-2 text-sm text-blue-600">
+                  <div className="flex items-center gap-1.5 text-xs text-blue-600">
                     <Calendar className="w-4 h-4" />
                     موعد قادم: {patient.nextAppointment}
                   </div>
@@ -366,43 +381,32 @@ const ClinicNewPatients: React.FC = () => {
               </div>
 
               {/* Stats */}
-              <div className="px-4 py-3 bg-gray-50 border-t border-gray-100">
+              <div className="px-3 py-2 bg-gray-50 border-t border-gray-100">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <p className="text-lg font-bold text-gray-900">
+                    <p className="text-base font-bold text-gray-900">
                       {patient.totalVisits}
                     </p>
                     <p className="text-xs text-gray-600">زيارة</p>
                   </div>
                   <div>
-                    <p className="text-lg font-bold text-gray-900">
+                    <p className="text-base font-bold text-gray-900">
                       {(patient.totalSpent / 1000).toFixed(0)}K
                     </p>
-                    <p className="text-xs text-gray-600">د.ع</p>
+                    <p className="text-[10px] text-gray-600">د.ع</p>
                   </div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="p-4 border-t border-gray-100">
+              <div className="p-3 border-t border-gray-100">
                 <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    className="flex-1"
-                    onClick={() => navigate(`/clinic/patients/${patient.id}`)}
-                  >
+                  <Button size="sm" className="flex-1 py-2" onClick={() => navigate(`/clinic/patients/${patient.id}`)}>
                     <Eye className="w-4 h-4 mr-2" />
                     عرض
                   </Button>
 
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1"
-                    onClick={() =>
-                      navigate(`/clinic/reservations?patient=${patient.id}`)
-                    }
-                  >
+                  <Button size="sm" variant="outline" className="flex-1 py-2" onClick={() => navigate(`/clinic/reservations?patient=${patient.id}`)}>
                     <Calendar className="w-4 h-4 mr-2" />
                     موعد
                   </Button>

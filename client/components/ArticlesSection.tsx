@@ -88,7 +88,7 @@ const articlesData = [
   },
   {
     id: 6,
-    title: "نصائح للنوم الصحي",
+    title: "نصائح للنوم ا��صحي",
     excerpt: "تعرف على أهمية النوم الجيد وكيفية تحسين جودة نومك للحصول على راحة أفضل",
     category: "نمط الحياة",
     author: "د. خالد النوم",
@@ -402,7 +402,7 @@ export default function ArticlesSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 9;
 
-  // تصفية المقالات حسب البحث والتصنيف
+  // تصفية المقالا�� حسب البحث والتصنيف
   const filteredArticles = articlesData.filter((article) => {
     const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
@@ -433,7 +433,7 @@ export default function ArticlesSection() {
   const endIndex = startIndex + articlesPerPage;
   const currentArticles = regularArticles.slice(startIndex, endIndex);
 
-  // إعادة تعيين الصفحة عند تغيير التصف��ة
+  // إعادة تعيين الص��حة عند تغيير التصف��ة
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, selectedCategory, sortBy]);
@@ -544,12 +544,12 @@ export default function ArticlesSection() {
             <h2 className="text-2xl font-bold text-gray-900">المقالات المميزة</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible">
             {featuredArticles.map((article) => (
               <Link
                 key={article.id}
                 to={`/articles/${article.id}`}
-                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:scale-[1.02]"
+                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:scale-[1.02] min-w-[280px] sm:min-w-[320px] md:min-w-0 snap-start"
               >
                 <div className="aspect-[4/3] bg-gradient-to-br from-purple-100 via-pink-100 to-purple-200 relative overflow-hidden">
                   <img
@@ -631,12 +631,12 @@ export default function ArticlesSection() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
             {currentArticles.map((article) => (
               <Link
                 key={article.id}
                 to={`/articles/${article.id}`}
-                className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:scale-[1.01] border border-gray-100"
+                className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:scale-[1.01] border border-gray-100 min-w-[260px] sm:min-w-[300px] md:min-w-0 snap-start"
               >
                 <div className="aspect-[4/3] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
                   <img

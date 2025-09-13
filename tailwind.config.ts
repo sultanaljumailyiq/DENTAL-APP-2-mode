@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindColors from "tailwindcss/colors";
 
 // Import tokens statically to avoid circular dependencies
 const designTokens = {
@@ -308,6 +309,7 @@ export default {
         warning: "hsl(var(--zendenta-warning))",
         error: "hsl(var(--zendenta-error))",
       },
+      ...tailwindColors,
     },
 
     // Typography from design tokens

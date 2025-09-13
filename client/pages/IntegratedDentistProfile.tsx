@@ -172,20 +172,20 @@ const mockNotifications = [
     priority: "high",
     actionUrl: "/inventory/reorder",
     actionText: "اطلب الآن",
-    tags: ["��خزون", "حرج"],
+    tags: ["��خزون", "��رج"],
   },
   {
     id: "4",
     type: "info",
     category: "patient",
-    title: "مريض جديد - تحد��ث الملف",
+    title: "مريض جديد - تحد��ث ا��ملف",
     message: "ا��ضم مريض جديد: فاطمة علي - مطلوب فحص أولي شامل",
     timestamp: "منذ ساعة",
     read: false,
     starred: false,
     priority: "medium",
     actionUrl: "/patients/new/456",
-    actionText: "عرض الملف",
+    actionText: "عرض ا��ملف",
     avatar:
       "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
     tags: ["مريض جديد", "فحص أولي"],
@@ -215,7 +215,7 @@ const mockNotifications = [
     starred: false,
     priority: "medium",
     actionUrl: "/system/maintenance",
-    actionText: "المزيد من التفاصيل",
+    actionText: "الم��يد من التفاصيل",
     tags: ["صيانة", "نظام"],
   },
   {
@@ -377,7 +377,7 @@ const mockClinics: Clinic[] = [
   },
 ];
 
-// بيانات وهمية للمستخدم الحالي مع حماية من الأخطاء
+// ��يانات وهمية للمستخدم الحالي مع حماية من الأخطاء
 const getCurrentUser = (): UserProfile => ({
   id: "1",
   role: "clinic_owner",
@@ -447,7 +447,7 @@ const buildDashboardSections = (
       },
     });
 
-    // الإشعارات (متاح دا��ماً)
+    // الإشعارات (متاح دا����ماً)
     sections.push({
       id: "notifications",
       title: "الإشعارات",
@@ -464,11 +464,11 @@ const buildDashboardSections = (
       },
     });
 
-    // المف��لة (متاح دائماً)
+    // المف����لة (متاح دائماً)
     sections.push({
       id: "favorites",
       title: "المفضلة",
-      description: "الوظائف والمنتجات المحفوظة",
+      description: "الوظائف والمنتجات المح��وظة",
       icon: Heart,
       path: "/dentist-hub?section=favorites",
       color: "rose",
@@ -487,7 +487,7 @@ const buildDashboardSections = (
       sections.push({
         id: "clinic-management",
         title: "إدارة العيادة",
-        description: "نظام شامل لإدار�� عيادتك والمواعيد",
+        description: "نظام شامل لإدار�� ��يادتك والمواعيد",
         icon: Building2,
         path: "/dentist-hub?section=clinic",
         color: "teal",
@@ -547,7 +547,7 @@ const buildDashboardSections = (
   }
 };
 
-// بناء عن��صر القائمة الجانبية مع حماية من ا��أخطاء
+// ��ناء عن��صر القائمة الجانبية مع حماية من ا��أخطاء
 const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
   try {
     const permissions = rolePermissions[userRole] || {};
@@ -593,7 +593,7 @@ const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
         children: [
           {
             id: "appointments",
-            label: "إشعارات المواعيد",
+            label: "��شعارات المواعيد",
             icon: Calendar,
             path: "/dentist-hub?section=notifications&sub=appointments",
             badge: 5,
@@ -768,7 +768,7 @@ const buildSidebarItems = (userRole: UserRole): SidebarItem[] => {
 
 // المكون الرئيسي م�� error handling محسن
 export default function IntegratedDentistProfile() {
-  // استخدام Context مع error handling
+  // استخ��ام Context مع error handling
   const i18n = useI18n();
   const favoritesContext = useFavorites();
   const bookmarksContext = useBookmarks();
@@ -784,6 +784,8 @@ export default function IntegratedDentistProfile() {
   const [selectedSection, setSelectedSection] = useState<string>("overview");
   const [selectedSubSection, setSelectedSubSection] = useState<string>("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [navMode, setNavMode] = useState<"side" | "top" | "bottom" | "fab">("side");
+  const [fabOpen, setFabOpen] = useState(false);
   const [expandedSidebarItems, setExpandedSidebarItems] = useState<string[]>([
     "overview",
   ]);
@@ -814,9 +816,13 @@ export default function IntegratedDentistProfile() {
       const urlParams = new URLSearchParams(location.search);
       const section = urlParams.get("section") || "overview";
       const subSection = urlParams.get("sub") || "";
+      const nav = urlParams.get("nav") as any;
 
       setSelectedSection(section);
       setSelectedSubSection(subSection);
+      if (nav && ["side", "top", "bottom", "fab"].includes(nav)) {
+        setNavMode(nav);
+      }
     } catch (error) {
       console.error("Error parsing URL params:", error);
       setSelectedSection("overview");
@@ -836,15 +842,18 @@ export default function IntegratedDentistProfile() {
   // التنقل بين الأقسام
   const navigateToSection = (section: string, subSection?: string) => {
     try {
-      const url = `/dentist-hub?section=${section}${subSection ? `&sub=${subSection}` : ""}`;
-      navigate(url);
+      const params = new URLSearchParams(location.search);
+      params.set("section", section);
+      if (subSection) params.set("sub", subSection); else params.delete("sub");
+      params.set("nav", navMode);
+      navigate(`/dentist-hub?${params.toString()}`);
       setIsSidebarOpen(false);
     } catch (error) {
       console.error("Error navigating to section:", error);
     }
   };
 
-  // عرض محتوى القسم المختار
+  // عرض محتوى القسم ا��مختار
   const renderSectionContent = () => {
     try {
       switch (selectedSection) {
@@ -1435,7 +1444,7 @@ export default function IntegratedDentistProfile() {
           <div className="text-center p-6 bg-blue-50 rounded-xl">
             <Package className="w-12 h-12 text-blue-600 mx-auto mb-3" />
             <h3 className="font-semibold text-gray-900 mb-1">
-              المنتجات المفضلة
+              المنتجات ��لمفضلة
             </h3>
             <p className="text-2xl font-bold text-blue-600">
               {currentUser.stats.favoriteProducts}
@@ -1669,7 +1678,7 @@ export default function IntegratedDentistProfile() {
               </div>
             </div>
             <div className="text-2xl font-bold text-indigo-600">45</div>
-            <div className="text-sm text-gray-600">تقرير متاح</div>
+            <div className="text-sm text-gray-600">تقر��ر متاح</div>
           </Link>
         </div>
       </div>
@@ -1701,7 +1710,7 @@ export default function IntegratedDentistProfile() {
           {/* إعدادات ال��ساب */}
           <div className="border-b border-gray-200 pb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              إع��ادات الحساب
+              إع���ادات الحساب
             </h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -1747,7 +1756,7 @@ export default function IntegratedDentistProfile() {
                 },
                 {
                   label: "إشعارات التسويق",
-                  description: "عروض خاصة ونشرات إخبارية",
+                  description: "عروض خا��ة ونشرات إخبارية",
                   enabled: false,
                 },
               ].map((setting, index) => (
@@ -1860,7 +1869,7 @@ export default function IntegratedDentistProfile() {
                     <CreditCard className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-sm font-medium text-gray-900">
-                    طرق الدفع
+                    طرق الد��ع
                   </span>
                 </Link>
 
@@ -1899,82 +1908,43 @@ export default function IntegratedDentistProfile() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
-      {/* هيدر التطبيق */}
-      <div className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="px-4 py-3">
-          <div className="flex items-center justify-between">
-            {/* معلومات المستخدم */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors md:hidden"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
+      {/* هيدر مبسط وفق التعديل */}
+      <div className="bg-white border-b border-gray-200 shadow-sm" />
 
-              <div className="flex items-center gap-3">
-                <img
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
-                  className="w-10 h-10 rounded-xl object-cover ring-2 ring-blue-500/20"
-                />
-                <div className="hidden md:block">
-                  <h1 className="text-lg font-bold text-gray-900">
-                    {currentUser.name}
-                  </h1>
-                  <p className="text-sm text-gray-600">
-                    {currentUser.specialization}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* أدوات التحكم */}
-            <div className="flex items-center gap-2">
-              {/* ��افذة الإشعارات المنبثقة */}
-              <NotificationPopover
-                trigger={
-                  <div className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                    <Bell className="w-5 h-5" />
-                    {currentUser.stats.unreadNotifications > 0 && (
-                      <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                        {currentUser.stats.unreadNotifications}
-                      </span>
-                    )}
-                  </div>
-                }
-                isOpen={isNotificationOpen}
-                onOpenChange={setIsNotificationOpen}
-                notifications={mockNotifications}
-              />
-
-              {/* نافذة الملف الشخصي المنبثقة */}
-              <ProfilePopover
-                trigger={
-                  <img
-                    src={currentUser.avatar}
-                    alt={currentUser.name}
-                    className="w-8 h-8 rounded-lg object-cover ring-2 ring-blue-500/20 cursor-pointer hover:ring-blue-500/40 transition-all"
-                  />
-                }
-                isOpen={isProfileOpen}
-                onOpenChange={setIsProfileOpen}
-                user={currentUser}
-              />
-
-              <Link
-                to="/settings"
-                className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <Settings className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
+      {/* محوّل أنماط القائمة */}
+      <div className="max-w-7xl mx-auto px-4 pt-4">
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-gray-600">نمط القائمة:</span>
+          {([
+            { id: "side", label: "جانبية" },
+            { id: "top", label: "علوية" },
+            { id: "bottom", label: "سفلية" },
+            { id: "fab", label: "زر عائم" },
+          ] as const).map((m) => (
+            <button
+              key={m.id}
+              onClick={() => {
+                setNavMode(m.id);
+                const params = new URLSearchParams(location.search);
+                params.set("nav", m.id);
+                navigate(`/dentist-hub?${params.toString()}`);
+              }}
+              className={cn(
+                "px-3 py-1 rounded-lg border transition-colors",
+                navMode === m.id
+                  ? "bg-blue-600 text-white border-blue-600"
+                  : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100",
+              )}
+            >
+              {m.label}
+            </button>
+          ))}
         </div>
       </div>
 
       <div className="flex">
         {/* القائمة الجانبية */}
+        {navMode === "side" && (
         <div
           className={cn(
             "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0",
@@ -1984,7 +1954,7 @@ export default function IntegratedDentistProfile() {
           <div className="h-full overflow-y-auto py-6">
             <div className="px-4 mb-6">
               <h2 className="text-lg font-bold text-gray-900">مركز الأطباء</h2>
-              <p className="text-sm text-gray-600">النظام المتكامل</p>
+              <p className="text-sm text-gray-600">النظام المتك��مل</p>
             </div>
 
             <nav className="px-4 space-y-2">
@@ -2084,23 +2054,94 @@ export default function IntegratedDentistProfile() {
             </nav>
           </div>
         </div>
+        )}
 
         {/* overlay للجوال */}
-        {isSidebarOpen && (
+        {isSidebarOpen && navMode === "side" && (
           <div
             className="fixed inset-0 z-30 bg-black/50 md:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
 
-        {/* المحتوى الرئيسي */}
+        {/* المحتوى الرئ��سي */}
         <div className="flex-1 min-w-0">
+          {navMode === "top" && (
+            <div className="sticky top-16 z-20 bg-white/90 backdrop-blur border-b border-gray-200">
+              <div className="max-w-7xl mx-auto px-4 py-2 overflow-x-auto">
+                <div className="flex gap-2 w-max">
+                  {sidebarItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = selectedSection === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => navigateToSection(item.id)}
+                        className={cn(
+                          "inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm whitespace-nowrap border",
+                          isActive
+                            ? "bg-blue-50 border-blue-200 text-blue-700"
+                            : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100",
+                        )}
+                      >
+                        <Icon className="w-4 h-4" />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
           <main className="p-6">{renderSectionContent()}</main>
         </div>
       </div>
 
-      {/* الشريط السفلي ال��وحد النهائي */}
-      <FinalUnifiedBottomNav userRole={currentUser.role} />
+      {navMode === "fab" && (
+        <>
+          <button
+            onClick={() => setFabOpen((v) => !v)}
+            className="fixed bottom-24 right-4 z-50 w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl flex items-center justify-center hover:bg-blue-700"
+            aria-label="فتح القائمة"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          {fabOpen && (
+            <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setFabOpen(false)} />
+          )}
+          {fabOpen && (
+            <div className="fixed bottom-40 right-4 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 w-72 max-h-[60vh] overflow-y-auto p-3">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-900">القائمة</span>
+                <button onClick={() => setFabOpen(false)} className="px-2 py-1 text-xs bg-gray-100 rounded-md">إغلاق</button>
+              </div>
+              <div className="space-y-1">
+                {sidebarItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => { navigateToSection(item.id); setFabOpen(false); }}
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50"
+                    >
+                      <div className="flex items-center gap-2 text-gray-800">
+                        <Icon className="w-4 h-4" />
+                        <span className="text-sm">{item.label}</span>
+                      </div>
+                      {item.badge && item.badge > 0 && (
+                        <span className="px-2 py-0.5 text-xs bg-red-500 text-white rounded-full">{item.badge}</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+      {(navMode === "bottom" || navMode === "fab") && (
+        <FinalUnifiedBottomNav userRole={currentUser.role} />
+      )}
     </div>
   );
 }

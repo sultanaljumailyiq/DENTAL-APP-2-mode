@@ -42,119 +42,41 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
             </p>
 
             {/* Navigation to First Aid Section */}
-            <div className="mt-8">
+            <div className="mt-6 flex items-center justify-center gap-2 flex-wrap">
               <a
                 href="#first-aid"
-                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center gap-2"
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
               >
-                <BookOpen className="w-5 h-5" />
-                دليل الإسعافات الأولية
+                <BookOpen className="w-4 h-4" />
+                الإسعافات الأولية
               </a>
+              <Link
+                to="/emergency/pain-management"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
+              >
+                إدارة الأل��
+              </Link>
+              <Link
+                to="/emergency"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all inline-flex items-center gap-2"
+              >
+                طوارئ
+              </Link>
             </div>
 
-            {/* Quick stats */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">150+</div>
-                <p className="text-purple-100">مقال طبي</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">50+</div>
-                <p className="text-purple-100">طبيب كاتب</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">10k+</div>
-                <p className="text-purple-100">قارئ شهرياً</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* First Aid Guide Section */}
-      <section id="first-aid" className="py-16 bg-white">
+      {/* First Aid Guide Section (compact redirect) */}
+      <section id="first-aid" className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              دليل الإسعافات الأولية
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              تعلم كيفية التعامل مع الحالات الطارئة والإسعافات الأولية الأساسية
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-red-50 border border-red-200 rounded-xl p-6 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                الإسعافات الأساسية
-              </h3>
-              <p className="text-gray-600 mb-4">
-                خطوات الإسعافات الأولية للجروح والكدمات والحروق البسيطة
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• تنظيف الجروح</li>
-                <li>• التعامل مع النزيف</li>
-                <li>• علاج الحروق</li>
-                <li>• تضميد الجراح</li>
-              </ul>
+          <div className="flex items-center justify-between bg-red-50 border border-red-200 rounded-xl p-4">
+            <div className="flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-red-600" />
+              <span className="font-semibold text-gray-900">دليل الإسعافات الأولية</span>
             </div>
-
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                الطوارئ الطبية
-              </h3>
-              <p className="text-gray-600 mb-4">
-                كيفية التعامل مع الحالات الطارئة قبل وصول المساعدة الطبية
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• الإنعاش القلبي الرئوي</li>
-                <li>• التعامل مع الاختناق</li>
-                <li>• النوبات القلبية</li>
-                <li>• السكتة الدماغية</li>
-              </ul>
-            </div>
-
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                أدوات الإسعاف
-              </h3>
-              <p className="text-gray-600 mb-4">
-                قائمة بالأدوات الأساسية التي يجب توفرها في حقيبة الإسعافات
-                الأولية
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• الضمادات والشاش</li>
-                <li>• المطهرات</li>
-                <li>• الأدوية الأساسية</li>
-                <li>• أدوات القياس</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Emergency Contact */}
-          <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-2xl p-8 mt-12">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">في حالة الطوارئ</h3>
-              <p className="text-red-100 mb-6">
-                إذا كانت الحالة تتطلب تدخلاً طبياً عاجلاً، لا تتردد في الاتصال
-                بالطوا��ئ
-              </p>
-              <a
-                href="tel:911"
-                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-2xl hover:bg-red-50 transition-colors inline-block"
-              >
-                911
-              </a>
-            </div>
+            <Link to="/emergency/first-aid" className="text-red-600 font-medium hover:underline">اذهب للدليل</Link>
           </div>
         </div>
       </section>
@@ -164,27 +86,6 @@ export default function Articles({ userRole = "patient" }: ArticlesProps) {
         <PatientFriendlyArticlesSection userRole={userRole} />
       </div>
 
-      {/* Newsletter Section */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-4">اشترك في النشرة الطبية</h2>
-            <p className="text-purple-100 mb-8">
-              احصل على أحدث المقالات والنصائح الطبية مباشرة في بريدك الإلكتروني
-            </p>
-            <div className="flex gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="بريدك الإلكتروني"
-                className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <button className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
-                اشتراك
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">

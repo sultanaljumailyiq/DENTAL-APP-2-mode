@@ -74,7 +74,7 @@ const articleData = {
 
       <h2 class="text-2xl font-bold mb-4 mt-8">الخلاصة</h2>
       <p class="mb-6">
-        العناية اليومية بالأسنان ليست مجرد روتين، بل استثمار في صحتك العامة. 
+        العناية اليومية بالأسنان ليس�� مجرد روتين، بل استثمار في صحتك العامة. 
         اتباع هذه النصائح البسيطة يمكن أن يوفر عليك الكثير من المشاكل والتكاليف في المستقبل.
       </p>
     </div>
@@ -234,29 +234,6 @@ export default function ArticleDetail() {
               {articleData.title}
             </h1>
 
-            {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 mb-8 pb-8 border-b">
-              <div className="flex items-center gap-2">
-                <img
-                  src={articleData.authorImage}
-                  alt={articleData.author}
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="font-medium">{articleData.author}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                <span>{new Date(articleData.publishDate).toLocaleDateString('ar-SA')}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span>{articleData.readTime}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Eye className="w-4 h-4" />
-                <span>{articleData.views} مشاهدة</span>
-              </div>
-            </div>
 
             {/* Article Content */}
             <div 
@@ -413,17 +390,13 @@ export default function ArticleDetail() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                <div className="p-3">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-purple-600 transition-colors line-clamp-2">
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                  <p className="text-xs text-gray-600 line-clamp-2">
                     {article.excerpt}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <Clock className="w-4 h-4" />
-                    <span>{article.readTime}</span>
-                  </div>
                 </div>
               </Link>
             ))}

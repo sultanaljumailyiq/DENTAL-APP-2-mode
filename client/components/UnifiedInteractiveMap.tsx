@@ -69,7 +69,7 @@ const medicalServices: MedicalService[] = [
     website: "https://dr-ahmed-dental.com",
     emergencyPhone: "+964 770 111 2222",
     description:
-      "عيادة متخصصة في طب الأسنان وزراعة الأسنان بأحدث التقنيات العالم��ة.",
+      "عيادة متخصصة في طب الأسنان وزراعة الأسنان بأحدث التقنيات العالم���ة.",
   },
   {
     id: 2,
@@ -319,9 +319,6 @@ export default function UnifiedInteractiveMap({
                       <h3 className="text-lg font-bold text-gray-900 mb-1">
                         {centeredService.name}
                       </h3>
-                      <p className="text-blue-600 font-medium text-sm">
-                        {centeredService.doctor}
-                      </p>
                       <div className="flex items-center gap-2 mt-1">
                         <div className="flex items-center gap-1">
                           <Star className="w-4 h-4 text-yellow-400 fill-current" />
@@ -414,6 +411,15 @@ export default function UnifiedInteractiveMap({
         </div>
       </div>
 
+      {/* Quick navigation above clinics */}
+      <div className="mb-3 -mx-1">
+        <div className="flex flex-row flex-wrap justify-center items-start gap-2 overflow-x-auto snap-x snap-mandatory px-1">
+          <a href="/emergency/first-aid" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium hover:bg-orange-200">دليل الإسعافات الأولية</a>
+          <a href="/emergency/hospitals" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium hover:bg-blue-200">المستشفيات القريبة</a>
+          <a href="/emergency/pain-management" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium hover:bg-red-200">إدارة الألم</a>
+          <a href="/emergency/dental" className="snap-start whitespace-nowrap px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-medium hover:bg-amber-200">طوارئ الأسنان</a>
+        </div>
+      </div>
       {/* Horizontal Scrollable Services List */}
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
@@ -453,9 +459,6 @@ export default function UnifiedInteractiveMap({
                     >
                       {service.name}
                     </h4>
-                    <p className="text-sm text-blue-600 mb-1">
-                      {service.doctor}
-                    </p>
                     <p className="text-xs text-gray-600 mb-2 truncate">
                       {service.address}
                     </p>
@@ -494,9 +497,6 @@ export default function UnifiedInteractiveMap({
               <h3 className="text-xl font-bold text-gray-900 mb-1">
                 {selectedService.name}
               </h3>
-              <p className="text-blue-600 font-medium">
-                {selectedService.doctor}
-              </p>
               <p className="text-gray-600 text-sm">{selectedService.address}</p>
             </div>
             <div className="text-right">

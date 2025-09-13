@@ -60,6 +60,8 @@ interface CompactInteractiveMapProps {
   description?: string;
   showOnHomePage?: boolean;
   maxResults?: number;
+  initialFilter?: "all" | "nearby" | "247" | "emergency";
+  showFilters?: boolean;
 }
 
 // بيانات تجريبية للعيادات
@@ -128,7 +130,7 @@ const mockClinics: Clinic[] = [
   {
     id: "3",
     clinicId: "CL-BAGHDAD-003",
-    name: "عيادة الدكتور محمد المتخصصة",
+    name: "عيا��ة الدكتور محمد المتخصصة",
     type: "عيادة أسنان",
     address: "شارع الجادرية، بغداد",
     rating: 4.7,
@@ -194,7 +196,7 @@ const mockClinics: Clinic[] = [
       "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop",
     phone: "+964 790 555 1234",
     status: "available",
-    services: ["طوارئ", "إسعافات أولية", "فحوصات سريعة"],
+    services: ["طوارئ", "إسع��فات أولية", "فحوصات سريعة"],
     openHours: "24 ساعة",
     certification: true,
     doctors: [
@@ -204,7 +206,7 @@ const mockClinics: Clinic[] = [
         specialties: ["طب الطوارئ", "الإسعافات الأولية"],
       },
     ],
-    specialties: ["طب الطوار��", "الرعاية السريعة"],
+    specialties: ["طب الطوار��", "��لرعاية السريعة"],
     amenities: ["خدمة 24/7", "سيارة إسعاف", "معدات طوارئ"],
     priceRange: "30 - 200 ألف دينار",
     emergencyPhone: "+964 790 555 0000",
@@ -246,26 +248,44 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
   description = "اعثر على أقرب العيادات واحجز موعدك بسهولة",
   showOnHomePage = false,
   maxResults = 6,
+  initialFilter = "all",
+  showFilters = true,
 }) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedClinic, setSelectedClinic] = useState<Clinic | null>(null);
+  const [filter, setFilter] = useState<"all" | "nearby" | "247" | "emergency">(initialFilter);
 
-  // Filter clinics based on search and limit results
-  const filteredClinics = mockClinics
-    .filter(
-      (clinic) =>
-        clinic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        clinic.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        clinic.services.some((service) =>
-          service.toLowerCase().includes(searchQuery.toLowerCase()),
-        ),
-    )
-    .slice(0, maxResults);
+  // Filter clinics based on search and selected filter
+  let filteredClinics = mockClinics.filter(
+    (clinic) =>
+      clinic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      clinic.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      clinic.services.some((service) =>
+        service.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+  );
+
+  if (filter === "emergency") {
+    filteredClinics = filteredClinics.filter(
+      (c) => c.type.includes("طوارئ") || c.services.some((s) => s.includes("طوارئ"))
+    );
+  } else if (filter === "247") {
+    filteredClinics = filteredClinics.filter(
+      (c) => (c.openHours && c.openHours.includes("24")) || (c.amenities && c.amenities.some((a) => a.includes("24/7")))
+    );
+  } else if (filter === "nearby") {
+    filteredClinics = [...filteredClinics].sort((a, b) => {
+      const da = parseFloat(a.distance);
+      const db = parseFloat(b.distance);
+      return isNaN(da) || isNaN(db) ? 0 : da - db;
+    });
+  }
+
+  filteredClinics = filteredClinics.slice(0, maxResults);
 
   const handleBooking = (clinic: Clinic) => {
-    // التوجه إلى صفحة الحجز المحسنة للهاتف
-    navigate(`/mobile-booking/${clinic.clinicId}`);
+    navigate(`/modern-booking/${clinic.clinicId}`);
   };
 
   return (
@@ -278,7 +298,7 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
               <MapPin className="w-5 h-5 md:w-7 md:h-7 text-blue-600" />
               {title}
             </h3>
-            <p className="text-gray-600 mt-1 text-sm md:text-base">
+            <p className="text-gray-600 mt-1 mb-3.5 text-sm md:text-base">
               {description}
             </p>
           </div>
@@ -289,12 +309,35 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
           </div>
         </div>
 
-        {/* Search */}
+        {/* Filters + Search */}
+        {showFilters && (
+          <div className="flex items-center gap-2 mb-3 overflow-x-auto">
+            {[
+              { id: "all", label: "الكل" },
+              { id: "nearby", label: "العيادات القريبة" },
+              { id: "247", label: "24/7" },
+              { id: "emergency", label: "الطوارئ" },
+            ].map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setFilter(f.id as any)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
+                  filter === f.id
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="relative">
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
-            placeholder="ابحث عن عيادة أو طبيب..."
+            placeholder="����حث عن عيادة أو طبيب..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pr-10 pl-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -303,12 +346,12 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
       </div>
 
       {/* Compact Clinics Grid */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+      <div className="flex flex-row gap-3 md:gap-4 overflow-x-auto md:flex-wrap snap-x snap-mandatory">
         {filteredClinics.map((clinic) => (
           <div
             key={clinic.id}
-            className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
-            onClick={() => handleBooking(clinic)}
+            className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1 min-w-[220px] max-w-[220px] snap-start"
+            onClick={() => navigate(`/medical-services?section=directory#directory-map`) }
           >
             {/* Compact Clinic Image */}
             <div className="relative h-20 md:h-24 bg-gradient-to-br from-teal-50 to-blue-50 flex items-center justify-center overflow-hidden">
@@ -352,7 +395,10 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
                   {clinic.name}
                 </h3>
                 <div className="flex items-center justify-between text-xs">
-                  <p className="text-gray-600 line-clamp-1">{clinic.type}</p>
+                  <div className="flex items-center gap-1">
+                    <div className="w-4 h-4 rounded bg-gray-900" aria-hidden />
+                    <span className="sr-only">شعار</span>
+                  </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-3 h-3 text-yellow-500 fill-current" />
                     <span className="font-semibold text-gray-900">
@@ -377,25 +423,16 @@ const CompactInteractiveMap: React.FC<CompactInteractiveMapProps> = ({
               </div>
 
               {/* Compact Actions */}
-              <div className="flex gap-1 md:gap-2">
+              <div className="flex">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleBooking(clinic);
                   }}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors font-medium flex items-center justify-center gap-1 text-xs"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-1.5 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="حجز"
                 >
-                  <Calendar className="w-3 h-3" />
-                  <span className="hidden md:inline">احجز</span>
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(`tel:${clinic.phone}`);
-                  }}
-                  className="bg-green-600 hover:bg-green-700 text-white py-1 md:py-1.5 px-1 md:px-2 rounded-lg transition-colors flex items-center justify-center"
-                >
-                  <Phone className="w-3 h-3" />
+                  <Calendar className="w-4 h-4" />
                 </button>
               </div>
             </div>
